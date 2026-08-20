@@ -94,17 +94,15 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
           <div style="position: relative !important; width: 390px !important; height: 430px !important; min-width: 390px !important; min-height: 430px !important; max-width: 390px !important; max-height: 430px !important; flex-shrink: 0 !important; display: block !important;">
             
             <!-- Fotografía encajada dentro del cuadro -->
-            <div style="position: absolute !important; top: 18% !important; left: 19.5% !important; width: 61% !important; height: 64% !important; overflow: hidden !important; z-index: 1 !important;">
-              <img 
-                <img src={`${import.meta.env.BASE_URL}images/mi-foto.png`} alt="Oriana Yadhira Vértiz Vergara" ... /> 
+            <div style="position: absolute !important; top: 18% !important; left: 19.5% !important; width: 61% !important; height: 64% !important; overflow: hidden !important; z-index: 1 !important;"> 
+                <img src={`${import.meta.env.BASE_URL}/images/mi-foto.png`}
                 alt="Oriana Yadhira Vértiz Vergara"
                 style="width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; object-fit: cover !important; display: block !important; filter: grayscale(100%) contrast(105%) !important; margin: 0 !important; padding: 0 !important;"
               />
             </div>
 
             <!-- Marco dorado -->
-            <img 
-              <img src={`${import.meta.env.BASE_URL}images/frame.png`} alt="" ... /> 
+              <img src={`${import.meta.env.BASE_URL}/images/frame.png`}
               alt="" 
               style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; z-index: 2 !important; pointer-events: none !important; object-fit: contain !important; margin: 0 !important; padding: 0 !important; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.22)) !important;"
             />
