@@ -1,0 +1,176 @@
+---
+const pathname = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="logo">
+    <span class="initials">OY</span>
+    <span class="dot">•</span>
+    <span class="subtitle">PRIVATE ARCHIVE</span>
+  </div>
+
+  <nav class="nav">
+    <a href="/" class={pathname === '/' || pathname === '' ? 'active' : ''} data-es="INICIO" data-en="HOME">INICIO</a>
+    <a href="/ensayos" class={pathname.startsWith('/ensayos') ? 'active' : ''} data-es="ENSAYOS" data-en="ESSAYS">ENSAYOS</a>
+    <a href="/biblioteca" class={pathname.startsWith('/biblioteca') ? 'active' : ''} data-es="BIBLIOTECA" data-en="LIBRARY">BIBLIOTECA</a>
+    <a href="/cv" class={pathname.startsWith('/cv') ? 'active' : ''}>CV</a>
+    <a href="/contacto" class={pathname.startsWith('/contacto') ? 'active' : ''} data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
+  </nav>
+
+  <div class="controls">
+    <!-- Selector de Idioma -->
+    <button id="lang-toggle" class="lang-btn" aria-label="Cambiar idioma">
+      <span class="lang-opt active" data-lang-val="es">ES</span>
+      <span class="sep">|</span>
+      <span class="lang-opt" data-lang-val="en">EN</span>
+    </button>
+
+    <!-- Selector de Tema -->
+    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">
+      <span class="icon-sun">☼</span>
+      <span class="icon-moon">☾</span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--details);
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+  }
+
+  .initials {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .dot {
+    color: var(--accent);
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav a:hover, .nav a.active {
+    opacity: 1;
+    border-bottom: 1px solid var(--accent);
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    font-family: var(--font-sans);
+  }
+
+  .lang-opt {
+    opacity: 0.4;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .lang-opt.active {
+    opacity: 1;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .sep {
+    opacity: 0.3;
+  }
+
+  .theme-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .icon-moon { display: none; }
+  :global([data-theme="dark"]) .icon-sun { display: none; }
+  :global([data-theme="dark"]) .icon-moon { display: inline; }
+</style>
+
+<script>
+  // Cambio de tema
+  const themeBtn = document.getElementById('theme-toggle');
+  themeBtn?.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  });
+
+  // Cambio de idioma dinámico y sincronización
+  const langBtn = document.getElementById('lang-toggle');
+  const langOpts = document.querySelectorAll('.lang-opt');
+
+  function applyLanguage(lang) {
+    document.documentElement.setAttribute('lang', lang);
+
+    langOpts.forEach(opt => {
+      if (opt.getAttribute('data-lang-val') === lang) {
+        opt.classList.add('active');
+      } else {
+        opt.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const text = el.getAttribute(`data-${lang}`);
+      if (text) el.textContent = text;
+    });
+  }
+
+  // Cargar estado inicial si ya existía
+  const currentLang = document.documentElement.getAttribute('lang') || 'es';
+  applyLanguage(currentLang);
+
+  langBtn?.addEventListener('click', () => {
+    const activeLang = document.documentElement.getAttribute('lang') || 'es';
+    const nextLang = activeLang === 'es' ? 'en' : 'es';
+    applyLanguage(nextLang);
+  });
+</script>

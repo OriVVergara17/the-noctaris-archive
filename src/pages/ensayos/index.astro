@@ -1,0 +1,311 @@
+---
+import { getCollection } from 'astro:content';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+
+const ensayos = await getCollection('ensayos');
+const MAQUINA_BG = '/images/maquina.png';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ensayos & Proyectos | Oriana Vértiz</title>
+  </head>
+  <body>
+    
+    <!-- SCRIPT CONTROLADOR DE IDIOMA Y MODO OSCURO CÁLIDO -->
+    <script is:inline>
+      (function() {
+        const translations = {
+          es: {
+            pageTitle: "Ensayos & Proyectos",
+            pageSubtitle: "Investigaciones, análisis de políticas públicas y propuestas tecnológicas en salud y gobernanza.",
+            categoryEssay: "ENSAYO",
+            statusFinalized: "FINALIZADO",
+            portfolioLabel: "Portafolio Académico",
+            byLabel: "Por:",
+            readEssay: "Leer Ensayo →"
+          },
+          en: {
+            pageTitle: "Essays & Projects",
+            pageSubtitle: "Research, public policy analysis, and technological proposals in health and governance.",
+            categoryEssay: "ESSAY",
+            statusFinalized: "COMPLETED",
+            portfolioLabel: "Academic Portfolio",
+            byLabel: "By:",
+            readEssay: "Read Essay →"
+          }
+        };
+
+        function getDetectedLang() {
+          /* 1. Verificar si hay un elemento activo en el Header */
+          const activeBtn = document.querySelector('.lang-active, [data-lang].active, .active-lang');
+          if (activeBtn) {
+            const txt = activeBtn.textContent.trim().toLowerCase();
+            if (txt.includes('es')) return 'es';
+            if (txt.includes('en')) return 'en';
+          }
+
+          /* 2. Verificar localStorage o atributo lang */
+          const stored = localStorage.getItem('lang') || localStorage.getItem('language') || localStorage.getItem('locale');
+          if (stored) {
+            if (stored.toLowerCase().includes('en')) return 'en';
+            if (stored.toLowerCase().includes('es')) return 'es';
+          }
+
+          const htmlLang = document.documentElement.lang || document.documentElement.getAttribute('data-lang') || '';
+          if (htmlLang.toLowerCase().includes('en')) return 'en';
+          
+          return 'es';
+        }
+
+        function updateLanguage() {
+          const lang = getDetectedLang();
+          const t = translations[lang] || translations.es;
+
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) {
+              el.textContent = t[key];
+            }
+          });
+        }
+
+        function applyTheme() {
+          const isDark = document.documentElement.classList.contains('dark') || 
+                         document.body.classList.contains('dark') || 
+                         document.documentElement.getAttribute('data-theme') === 'dark';
+          
+          const root = document.documentElement;
+          const body = document.body;
+
+          if (isDark) {
+            const darkBg = '#140d0b';
+            root.style.setProperty('background-color', darkBg, 'important');
+            body.style.setProperty('background-color', darkBg, 'important');
+            
+            root.style.setProperty('--bg-page', darkBg);
+            root.style.setProperty('--text-main', '#f5eae1');
+            root.style.setProperty('--text-sub', '#ba9e8f');
+            root.style.setProperty('--card-bg', '#211613');
+            root.style.setProperty('--card-border', '#3b2923');
+            root.style.setProperty('--card-shadow', '0 10px 25px -5px rgba(0, 0, 0, 0.7)');
+            root.style.setProperty('--accent-color', '#e08a48');
+            root.style.setProperty('--link-color', '#e08a48');
+            root.style.setProperty('--maquina-opacity', '0.12');
+            root.style.setProperty('--maquina-filter', 'sepia(0.8) hue-rotate(-20deg) brightness(0.6)');
+          } else {
+            const lightBg = '#f7f4ee';
+            root.style.setProperty('background-color', lightBg, 'important');
+            body.style.setProperty('background-color', lightBg, 'important');
+
+            root.style.setProperty('--bg-page', lightBg);
+            root.style.setProperty('--text-main', '#1c1310');
+            root.style.setProperty('--text-sub', '#5c483f');
+            root.style.setProperty('--card-bg', '#ffffff');
+            root.style.setProperty('--card-border', '#e8dfd5');
+            root.style.setProperty('--card-shadow', '0 10px 25px -5px rgba(35, 20, 15, 0.08)');
+            root.style.setProperty('--accent-color', '#9e461f');
+            root.style.setProperty('--link-color', '#9e461f');
+            root.style.setProperty('--maquina-opacity', '0.22');
+            root.style.setProperty('--maquina-filter', 'none');
+          }
+        }
+
+        function syncAll() {
+          applyTheme();
+          updateLanguage();
+        }
+
+        syncAll();
+
+        /* Escuchar clics en los botones ES / EN del Header */
+        document.addEventListener('click', (e) => {
+          const target = e.target.closest('button, a, span');
+          if (target) {
+            const txt = target.textContent.trim().toUpperCase();
+            if (txt === 'ES' || txt.startsWith('ES') || txt.endsWith('ES')) {
+              localStorage.setItem('lang', 'es');
+              document.documentElement.setAttribute('lang', 'es');
+            } else if (txt === 'EN' || txt.startsWith('EN') || txt.endsWith('EN')) {
+              localStorage.setItem('lang', 'en');
+              document.documentElement.setAttribute('lang', 'en');
+            }
+          }
+          setTimeout(syncAll, 30);
+        });
+
+        /* Escuchar observadores de cambios en HTML */
+        const obs = new MutationObserver(syncAll);
+        obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme', 'lang', 'data-lang'] });
+
+        window.addEventListener('storage', syncAll);
+        document.addEventListener('DOMContentLoaded', syncAll);
+      })();
+    </script>
+
+    <!-- MÁQUINA DE ESCRIBIR DE FONDO -->
+    <div 
+      style={`position: fixed; bottom: 0; left: 0; width: 100vw; height: 100vh; background-image: url('${MAQUINA_BG}'); background-size: contain; background-position: center bottom; background-repeat: no-repeat; opacity: var(--maquina-opacity, 0.22); filter: var(--maquina-filter, none); pointer-events: none; z-index: 0; transition: all 0.3s ease;`}
+    ></div>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div style="position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem 1.5rem; box-sizing: border-box;">
+      
+      <Header />
+      
+      <main style="padding-top: 3.5rem; box-sizing: border-box;">
+        
+        <!-- ENCABEZADO -->
+        <header style="text-align: center; margin-bottom: 3.5rem; box-sizing: border-box;">
+          <h1 data-i18n="pageTitle" style="font-size: 2.5rem; font-family: Georgia, serif; font-weight: 700; color: var(--text-main, #1c1310); margin: 0 0 0.6rem 0; line-height: 1.2; transition: color 0.3s ease;">
+            Ensayos & Proyectos
+          </h1>
+          <p data-i18n="pageSubtitle" style="font-size: 1.05rem; color: var(--text-sub, #5c483f); max-width: 620px; margin: 0 auto; line-height: 1.5; transition: color 0.3s ease;">
+            Investigaciones, análisis de políticas públicas y propuestas tecnológicas en salud y gobernanza.
+          </p>
+        </header>
+
+        <!-- GRID DE TARJETAS -->
+        <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; align-items: stretch; width: 100%; box-sizing: border-box;">
+          {ensayos.map((ensayo) => {
+            const bgImage = ensayo.data.image || ensayo.data.heroImage || '/images/oncoruta-cover.png';
+            const year = ensayo.data.year || (ensayo.data.pubDate ? new Date(ensayo.data.pubDate).getFullYear() : '2026');
+            const essaySlug = ensayo.id ? ensayo.id.replace(/\.md$/, '') : ensayo.slug;
+
+            return (
+              <article style="width: 100%; max-width: 370px; min-width: 280px; background-color: var(--card-bg, #ffffff); border: 1px solid var(--card-border, #e8dfd5); border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); display: flex; flex-direction: column; box-sizing: border-box; transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;">
+                
+                <!-- BANNER PORTADA -->
+                <div style="position: relative; width: 100%; height: 210px; min-height: 210px; overflow: hidden; padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; background-color: #140d0b;">
+                  
+                  <div style={`position: absolute; top: -10%; left: -10%; width: 120%; height: 120%; background-image: url('${bgImage}'); background-size: cover; background-position: center; filter: blur(8px); opacity: 0.85; transform: scale(1.05); z-index: 1;`}></div>
+                  
+                  <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 13, 11, 0.35) 0%, rgba(20, 13, 11, 0.92) 100%); z-index: 2;"></div>
+
+                  <div style="position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: space-between; height: 100%; width: 100%; box-sizing: border-box;">
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box;">
+                      <span data-i18n="categoryEssay" style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); color: #ffffff; font-size: 0.68rem; font-weight: 700; padding: 0.32rem 0.75rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;">
+                        {ensayo.data.category || 'ENSAYO'}
+                      </span>
+                      <span data-i18n="statusFinalized" style="background: #f5eae1; color: #1c1310; font-size: 0.68rem; font-weight: 800; padding: 0.32rem 0.75rem; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;">
+                        {ensayo.data.status || 'FINALIZADO'}
+                      </span>
+                    </div>
+
+                    <h2 style="color: #ffffff !important; font-size: 1.2rem; font-family: system-ui, -apple-system, sans-serif; font-weight: 700; line-height: 1.35; margin: 0.4rem 0; text-shadow: 0 2px 4px rgba(0,0,0,0.7); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                      {ensayo.data.title}
+                    </h2>
+
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; box-sizing: border-box;">
+                      <div style="display: flex; flex-direction: column; gap: 1px;">
+                        <span data-i18n="portfolioLabel" style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.8);">Portafolio Académico</span>
+                        <span style="font-size: 0.82rem; font-weight: 700; color: #ffffff !important;">{ensayo.data.author || 'Oriana Yadhira Vértiz Vergara'}</span>
+                      </div>
+                      <div style="background: #f5eae1; color: #1c1310; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- CUERPO DE LA TARJETA -->
+                <div style="padding: 1.25rem; background-color: var(--card-bg, #ffffff); display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; box-sizing: border-box; transition: background-color 0.3s ease;">
+                  <div style="margin-bottom: 1rem;">
+                    <span style="color: var(--accent-color, #9e461f) !important; font-size: 0.88rem; font-weight: 800; display: block; margin-bottom: 0.4rem; transition: color 0.3s ease;">
+                      {year}
+                    </span>
+                    <h3 style="font-family: Georgia, serif; font-size: 1.15rem; font-weight: 700; color: var(--text-main, #1c1310); line-height: 1.35; margin: 0 0 0.5rem 0; transition: color 0.3s ease;">
+                      {ensayo.data.title}
+                    </h3>
+                    {ensayo.data.description && (
+                      <p style="color: var(--text-sub, #5c483f); font-size: 0.88rem; line-height: 1.5; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s ease;">
+                        {ensayo.data.description}
+                      </p>
+                    )}
+                  </div>
+
+                  <div style="border-top: 1px solid var(--card-border, #e8dfd5); padding-top: 0.85rem; display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; transition: border-color 0.3s ease;">
+                    <span style="font-size: 0.82rem; color: var(--text-sub, #5c483f); transition: color 0.3s ease;">
+                      <span data-i18n="byLabel">Por:</span> <strong style="color: var(--text-main, #1c1310); transition: color 0.3s ease;">{ensayo.data.author || 'Oriana Vértiz'}</strong>
+                    </span>
+                    <a data-i18n="readEssay" href={`/ensayos/${essaySlug}`} style="color: var(--link-color, #9e461f) !important; font-size: 0.85rem; font-weight: 700; text-decoration: underline; transition: opacity 0.2s ease, color 0.3s ease;">
+                      Leer Ensayo &rarr;
+                    </a>
+                  </div>
+                </div>
+
+              </article>
+            );
+          })}
+        </div>
+
+      </main>
+
+      <Footer />
+
+    </div>
+
+    <!-- ESTILOS GLOBALES -->
+    <style is:global>
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 100vh !important;
+        overflow-y: auto !important;
+        background-color: var(--bg-page, #f7f4ee) !important;
+      }
+
+      html.dark, 
+      body.dark, 
+      html.dark body,
+      [data-theme="dark"], 
+      .dark {
+        background-color: #140d0b !important;
+        color: #f5eae1 !important;
+      }
+
+      html.dark nav, 
+      html.dark header, 
+      html.dark main,
+      html.dark div {
+        border-color: #3b2923;
+      }
+
+      :root {
+        --bg-page: #f7f4ee;
+        --text-main: #1c1310;
+        --text-sub: #5c483f;
+        --card-bg: #ffffff;
+        --card-border: #e8dfd5;
+        --card-shadow: 0 10px 25px -5px rgba(35, 20, 15, 0.08);
+        --accent-color: #9e461f;
+        --link-color: #9e461f;
+        --maquina-opacity: 0.22;
+        --maquina-filter: none;
+      }
+
+      html.dark {
+        --bg-page: #140d0b !important;
+        --text-main: #f5eae1 !important;
+        --text-sub: #ba9e8f !important;
+        --card-bg: #211613 !important;
+        --card-border: #3b2923 !important;
+        --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7) !important;
+        --accent-color: #e08a48 !important;
+        --link-color: #e08a48 !important;
+        --maquina-opacity: 0.12 !important;
+        --maquina-filter: sepia(0.8) hue-rotate(-20deg) brightness(0.6) !important;
+      }
+    </style>
+  </body>
+</html>
