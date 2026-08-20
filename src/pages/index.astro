@@ -26,7 +26,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 
     <!-- CAPA DE FONDO: MARCA DE AGUA -->
     <div class="watermark-container" aria-hidden="true">
-      src={${import.meta.env.BASE_URL}/images/bg-art.png} class="watermark-bg-img" alt="" />
+      <img src={`${import.meta.env.BASE_URL}images/bg-art.png`} class="watermark-bg" ... /> class="watermark-bg-img" alt="" />
       <div class="watermark-text">NOCTARIS</div>
     </div>
 
@@ -74,7 +74,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
             <span class="pill-badge">NOCTARIS</span>
             <span class="pill-suffix">AMBIENCE</span>
 
-            <audio id="hero-audio" src="/audio/cancion.mp3" preload="metadata"></audio>
+            <audio src={`${import.meta.env.BASE_URL}audio/cancion.mp3`} ... ></audio>
           </div>
 
           <p class="quote"
@@ -96,7 +96,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
             <!-- Fotografía encajada dentro del cuadro -->
             <div style="position: absolute !important; top: 18% !important; left: 19.5% !important; width: 61% !important; height: 64% !important; overflow: hidden !important; z-index: 1 !important;">
               <img 
-                src={${import.meta.env.BASE_URL}/images/mi-foto.png} 
+                <img src={`${import.meta.env.BASE_URL}images/mi-foto.png`} alt="Oriana Yadhira Vértiz Vergara" ... /> 
                 alt="Oriana Yadhira Vértiz Vergara"
                 style="width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; object-fit: cover !important; display: block !important; filter: grayscale(100%) contrast(105%) !important; margin: 0 !important; padding: 0 !important;"
               />
@@ -104,7 +104,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 
             <!-- Marco dorado -->
             <img 
-              src={${import.meta.env.BASE_URL}/images/frame.png} 
+              <img src={`${import.meta.env.BASE_URL}images/frame.png`} alt="" ... /> 
               alt="" 
               style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; z-index: 2 !important; pointer-events: none !important; object-fit: contain !important; margin: 0 !important; padding: 0 !important; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.22)) !important;"
             />
