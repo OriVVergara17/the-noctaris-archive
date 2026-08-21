@@ -146,7 +146,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
         <div class="featured-grid">
           {ensayosAMostrar.length > 0 ? (
             ensayosAMostrar.map((ensayo) => (
-              <a href={`${import.meta.env.BASE_URL}ensayos/${ensayo.slug || ensayo.id}`} class="featured-card">
+              <a href={`${import.meta.env.BASE_URL}/ensayos/${essaySlug}`} ...>
                 <h3 class="card-title" data-es={ensayo.data.title} data-en={ensayo.data.titleEn || ensayo.data.title}>
                   {ensayo.data.title}
                 </h3>
