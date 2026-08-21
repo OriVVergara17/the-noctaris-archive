@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import '../../styles/global.css';
 
 const ensayos = await getCollection('ensayos');
-const MAQUINA_BG = '/images/maquina.png';
+const MAQUINA_BG = `${import.meta.env.BASE_URL}/images/maquina.png`;
 ---
 
 <!DOCTYPE html>
@@ -42,7 +42,6 @@ const MAQUINA_BG = '/images/maquina.png';
         };
 
         function getDetectedLang() {
-          /* 1. Verificar si hay un elemento activo en el Header */
           const activeBtn = document.querySelector('.lang-active, [data-lang].active, .active-lang');
           if (activeBtn) {
             const txt = activeBtn.textContent.trim().toLowerCase();
@@ -50,7 +49,6 @@ const MAQUINA_BG = '/images/maquina.png';
             if (txt.includes('en')) return 'en';
           }
 
-          /* 2. Verificar localStorage o atributo lang */
           const stored = localStorage.getItem('lang') || localStorage.getItem('language') || localStorage.getItem('locale');
           if (stored) {
             if (stored.toLowerCase().includes('en')) return 'en';
@@ -123,7 +121,6 @@ const MAQUINA_BG = '/images/maquina.png';
 
         syncAll();
 
-        /* Escuchar clics en los botones ES / EN del Header */
         document.addEventListener('click', (e) => {
           const target = e.target.closest('button, a, span');
           if (target) {
@@ -139,7 +136,6 @@ const MAQUINA_BG = '/images/maquina.png';
           setTimeout(syncAll, 30);
         });
 
-        /* Escuchar observadores de cambios en HTML */
         const obs = new MutationObserver(syncAll);
         obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme', 'lang', 'data-lang'] });
 
@@ -173,7 +169,8 @@ const MAQUINA_BG = '/images/maquina.png';
         <!-- GRID DE TARJETAS -->
         <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; align-items: stretch; width: 100%; box-sizing: border-box;">
           {ensayos.map((ensayo) => {
-            const bgImage = ensayo.data.image || ensayo.data.heroImage || '/images/oncoruta-cover.png';
+            const rawBgImage = ensayo.data.image || ensayo.data.heroImage || '/images/oncoruta-cover.png';
+            const bgImage = rawBgImage.startsWith('http') ? rawBgImage : `${import.meta.env.BASE_URL}${rawBgImage.startsWith('/') ? '' : '/'}${rawBgImage}`;
             const year = ensayo.data.year || (ensayo.data.pubDate ? new Date(ensayo.data.pubDate).getFullYear() : '2026');
             const essaySlug = ensayo.id ? ensayo.id.replace(/\.md$/, '') : ensayo.slug;
 
@@ -238,7 +235,7 @@ const MAQUINA_BG = '/images/maquina.png';
                     <span style="font-size: 0.82rem; color: var(--text-sub, #5c483f); transition: color 0.3s ease;">
                       <span data-i18n="byLabel">Por:</span> <strong style="color: var(--text-main, #1c1310); transition: color 0.3s ease;">{ensayo.data.author || 'Oriana Vértiz'}</strong>
                     </span>
-                    <a data-i18n="readEssay" href={`/ensayos/${essaySlug}`} style="color: var(--link-color, #9e461f) !important; font-size: 0.85rem; font-weight: 700; text-decoration: underline; transition: opacity 0.2s ease, color 0.3s ease;">
+                    <a data-i18n="readEssay" href={`${import.meta.env.BASE_URL}/ensayos/${essaySlug}`} style="color: var(--link-color, #9e461f) !important; font-size: 0.85rem; font-weight: 700; text-decoration: underline; transition: opacity 0.2s ease, color 0.3s ease;">
                       Leer Ensayo &rarr;
                     </a>
                   </div>
