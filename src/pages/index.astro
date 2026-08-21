@@ -484,15 +484,25 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 </style>
 
 <style>
+  /* 1. ESTRUCTURA PANTALLA COMPLETA */
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+
   .content-wrapper {
     position: relative;
     z-index: 2;
-    max-width: 1100px;
+    width: 100%;
+    max-width: 1400px; /* Ampliado para cubrir pantalla completa */
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 4rem;
   }
 
-  /* Fondo atenuado e inamovible */
+  /* 2. MARCA DE AGUA (OPACIDAD Y MODO OSCURO CORREGIDOS) */
   .watermark-container {
     position: fixed;
     inset: 0;
@@ -503,19 +513,27 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     overflow: hidden;
   }
 
-  .watermark-bg-img {
+  /* Aplica la transparencia a cualquier imagen dentro de watermark-container o con la clase watermark-bg */
+  .watermark-bg,
+  .watermark-bg-img,
+  .watermark-container img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.08;
-    filter: grayscale(100%) sepia(20%);
+    opacity: 0.12 !important; /* Marca de agua sutil */
+    mix-blend-mode: multiply !important; /* Se integra con el papel pergamino */
+    filter: grayscale(100%) contrast(105%) !important;
   }
 
-  [data-theme="dark"] .watermark-bg-img {
-    opacity: 0.05;
-    filter: grayscale(100%) invert(0.9);
+  /* Marca de agua en Modo Oscuro */
+  [data-theme="dark"] .watermark-bg,
+  [data-theme="dark"] .watermark-bg-img,
+  [data-theme="dark"] .watermark-container img {
+    opacity: 0.18 !important;
+    mix-blend-mode: screen !important;
+    filter: invert(0.9) grayscale(100%) !important;
   }
 
   .watermark-text {
@@ -526,7 +544,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     font-size: clamp(8rem, 18vw, 22rem);
     font-weight: 400;
     color: var(--accent);
-    opacity: 0.07;
+    opacity: 0.05;
     letter-spacing: 0.03em;
     white-space: nowrap;
     user-select: none;
@@ -540,13 +558,14 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     gap: 2.5rem;
     align-items: center;
     padding-top: 1.5rem;
+    width: 100%;
   }
 
   .left-col {
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
-    max-width: 580px;
+    max-width: 650px;
   }
 
   .archive-header {
@@ -572,7 +591,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     line-height: 1.12;
     letter-spacing: 0.01em;
     margin-bottom: 0.6rem;
@@ -687,7 +706,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     filter: invert(0.85) hue-rotate(180deg);
   }
 
-  /* ESTILOS DE LA SECCIÓN DESTACADOS (FEATURED CARDS) */
+  /* FEATURED CARDS */
   .featured-section {
     margin-top: 2rem;
     margin-bottom: 3.5rem;
@@ -803,12 +822,12 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   @media (max-width: 768px) {
-    .featured-grid {
-      grid-template-columns: 1fr;
-    }
+    .content-wrapper { padding: 0 1.5rem; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; }
   }
 
-  /* ESTILOS DEL FOOTER */
+  /* FOOTER */
   .site-footer {
     margin-top: 5rem;
     padding-top: 3.5rem;
@@ -872,9 +891,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     transition: color 0.2s ease;
   }
 
-  .footer-links a:hover {
-    color: var(--accent);
-  }
+  .footer-links a:hover { color: var(--accent); }
 
   .contact-info {
     font-size: 0.9rem;
@@ -897,9 +914,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     word-break: break-all;
   }
 
-  .email-link:hover {
-    color: var(--accent);
-  }
+  .email-link:hover { color: var(--accent); }
 
   .social-icons {
     display: flex;
