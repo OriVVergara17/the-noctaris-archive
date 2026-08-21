@@ -28,7 +28,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   </head>
   <body>
 
-   <!-- CAPA DE FONDO: MARCA DE AGUA CORREGIDA Y EXPANDIDA -->
+    <!-- CAPA DE FONDO: MARCA DE AGUA CORREGIDA Y EXPANDIDA -->
     <div class="watermark-container" aria-hidden="true" style="position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100vh !important; pointer-events: none !important; z-index: -1 !important; overflow: hidden !important;">
       <img 
         src={bgArt} 
@@ -45,89 +45,88 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 
     <!-- CONTENEDOR PRINCIPAL -->
     <div class="content-wrapper">
-      <main class="hero" style="display: flex !important; justify-content: center !important; align-items: center !important; gap: 3rem !important; width: 100% !important; max-width: 1280px !important; margin: 0 auto !important; padding: 2rem 1rem !important;">
-      <!-- COLUMNA IZQUIERDA: TEXTO CENTRADO Y LIMPIO -->
-      <div class="left-col" style="flex: 1 !important; max-width: 580px !important;">
-        <div class="archive-header">
-          <span class="archive-no">ARCHIVE No. 001</span>
-          <span class="pseudonym-tag">ALIAS · NOCTARIS</span>
-        </div>
-
-        <div class="hero-title">
-          <h1>ORIANA YADHIRA<br />VÉRTIZ VERGARA</h1>
-          <p class="tagline" 
-             data-es="CIENTISTA POLÍTICA · ANALISTA POLÍTICA & SOCIAL · INVESTIGACIÓN"
-             data-en="POLITICAL SCIENTIST · POLITICAL & SOCIAL ANALYST · RESEARCH">
-            CIENTISTA POLÍTICA · ANALISTA POLÍTICA & SOCIAL · INVESTIGACIÓN
-          </p>
-        </div>
-
-        <!-- REPRODUCTOR CÁPSULA DORADA -->
-        <div class="vintage-audio-pill">
-          <span class="pill-prefix">$ play</span>
-
-          <button id="audio-toggle" class="pill-play-btn" type="button" aria-label="Reproducir pista">
-            <svg id="play-icon" viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            <svg id="pause-icon" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display: none;">
-              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-            </svg>
-          </button>
-
-          <div class="sound-wave">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <main class="hero">
+        <!-- COLUMNA IZQUIERDA: TEXTO CENTRADO Y LIMPIO -->
+        <div class="left-col">
+          <div class="archive-header">
+            <span class="archive-no">ARCHIVE No. 001</span>
+            <span class="pseudonym-tag">ALIAS · NOCTARIS</span>
           </div>
 
-          <span class="pill-badge">NOCTARIS</span>
-          <span class="pill-suffix">AMBIENCE</span>
+          <div class="hero-title">
+            <h1>ORIANA YADHIRA<br />VÉRTIZ VERGARA</h1>
+            <p class="tagline" 
+               data-es="CIENTISTA POLÍTICA · ANALISTA POLÍTICA & SOCIAL · INVESTIGACIÓN"
+               data-en="POLITICAL SCIENTIST · POLITICAL & SOCIAL ANALYST · RESEARCH">
+              CIENTISTA POLÍTICA · ANALISTA POLÍTICA & SOCIAL · INVESTIGACIÓN
+            </p>
+          </div>
 
-          <audio id="hero-audio" src={cancionAudio}></audio>
+          <!-- REPRODUCTOR CÁPSULA DORADA -->
+          <div class="vintage-audio-pill">
+            <span class="pill-prefix">$ play</span>
+
+            <button id="audio-toggle" class="pill-play-btn" type="button" aria-label="Reproducir pista">
+              <svg id="play-icon" viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <svg id="pause-icon" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display: none;">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            </button>
+
+            <div class="sound-wave">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <span class="pill-badge">NOCTARIS</span>
+            <span class="pill-suffix">AMBIENCE</span>
+
+            <audio id="hero-audio" src={cancionAudio}></audio>
+          </div>
+
+          <p class="quote"
+             data-es="“Un archivo pensado para disecar las dinámicas del poder, desafiar los dogmas evidentes y mirar siempre más allá de la superficie.”"
+             data-en="“An archive designed to dissect power dynamics, challenge self-evident dogmas, and always look beyond the surface.”">
+            “Un archivo pensado para disecar las dinámicas del poder, desafiar los dogmas evidentes y mirar siempre más allá de la superficie.”
+          </p>
+
+          <div class="cta-row">
+            <a href="/ensayos" class="btn" data-es="EXPLORAR ENSAYOS →" data-en="EXPLORE ESSAYS →">EXPLORAR ENSAYOS &rarr;</a>
+            <span class="est">EST. 2026</span>
+          </div>
         </div>
 
-        <p class="quote"
-           data-es="“Un archivo pensado para disecar las dinámicas del poder, desafiar los dogmas evidentes y mirar siempre más allá de la superficie.”"
-           data-en="“An archive designed to dissect power dynamics, challenge self-evident dogmas, and always look beyond the surface.”">
-          “Un archivo pensado para disecar las dinámicas del poder, desafiar los dogmas evidentes y mirar siempre más allá de la superficie.”
-        </p>
+        <!-- COLUMNA DERECHA: MARCO GRANDE Y CENTRADO -->
+        <div class="right-col">
+          <div class="frame-wrapper">
+            <!-- Fotografía recortada y ajustada al marco grande -->
+            <div class="photo-container"> 
+              <img 
+                src={miFoto} 
+                alt="Oriana Yadhira Vértiz Vergara" 
+                class="hero-photo"
+              />
+            </div>
 
-        <div class="cta-row">
-          <a href="/ensayos" class="btn" data-es="EXPLORAR ENSAYOS →" data-en="EXPLORE ESSAYS →">EXPLORAR ENSAYOS &rarr;</a>
-          <span class="est">EST. 2026</span>
-        </div>
-      </div>
-
-      <!-- COLUMNA DERECHA: MARCO GRANDE Y CENTRADO -->
-      <div class="right-col" style="display: flex !important; align-items: center !important; gap: 1.5rem !important; flex-shrink: 0 !important;">
-        <div style="position: relative !important; width: 460px !important; height: 575px !important; display: block !important;">
-          
-          <!-- Fotografía recortada y ajustada al marco grande -->
-          <div style="position: absolute !important; top: 112px !important; left: 85px !important; width: 288px !important; height: 351px !important; overflow: hidden !important; z-index: 1 !important;"> 
+            <!-- Marco dorado -->
             <img 
-              src={miFoto} 
-              alt="Oriana Yadhira Vértiz Vergara" 
-              style="width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; filter: grayscale(100%) contrast(105%) !important; display: block !important;" 
+              src={frameImg} 
+              alt="" 
+              class="hero-frame"
             />
           </div>
 
-          <!-- Marco dorado -->
-          <img 
-            src={frameImg} 
-            alt="" 
-            style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: contain !important; z-index: 10 !important; pointer-events: none !important;" 
-          />
+          <!-- ÍNDICE LATERAL -->
+          <div class="index-numbers">
+            <span class="num active">01</span>
+            <span class="num">02</span>
+            <span class="num">03</span>
+            <span class="num">04</span>
+            <span class="num">05</span>
+          </div>
         </div>
-
-        <!-- ÍNDICE LATERAL -->
-        <div class="index-numbers">
-          <span class="num active">01</span>
-          <span class="num">02</span>
-          <span class="num">03</span>
-          <span class="num">04</span>
-          <span class="num">05</span>
-        </div>
-      </div>
-    </main>
+      </main>
 
       <!-- SECCIÓN ACTIVIDAD EN GITHUB -->
       <section class="github-section">
@@ -163,7 +162,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
                     {ensayo.data.date || ensayo.data.pubDate || '2026'}
                   </span>
                   <span class="meta-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 14"></polyline></svg>
                     {ensayo.data.readTime || ensayo.data.readingTime || '5 min lectura'}
                   </span>
                 </div>
@@ -193,7 +192,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
                     25 Feb, 2026
                   </span>
                   <span class="meta-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 14"></polyline></svg>
                     5 min lectura
                   </span>
                 </div>
@@ -221,7 +220,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
                     18 Feb, 2026
                   </span>
                   <span class="meta-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 14"></polyline></svg>
                     3 min lectura
                   </span>
                 </div>
@@ -503,9 +502,9 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 2rem;
     box-sizing: border-box;
   }
 
@@ -526,19 +525,21 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 
   /* Layout Hero */
   .hero {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0rem !important;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding-top: 1.5rem;
+    gap: 3rem;
     width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
   }
 
   .left-col {
+    flex: 1;
+    max-width: 580px;
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
-    max-width: 650px;
+    gap: 1.5rem;
   }
 
   .archive-header {
@@ -608,9 +609,46 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 
   .right-col {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .frame-wrapper {
+    position: relative;
+    width: 460px;
+    height: 575px;
+    display: block;
+  }
+
+  .photo-container {
+    position: absolute;
+    top: 112px;
+    left: 85px;
+    width: 288px;
+    height: 351px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%) contrast(105%);
+    display: block;
+  }
+
+  .hero-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 10;
+    pointer-events: none;
   }
 
   .index-numbers {
@@ -904,23 +942,75 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     transform: translateY(-2px);
   }
 
-  @media (max-width: 850px) {
-    .footer-container {
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem 1.5rem;
+  /* MEDIA QUERIES PARA ADAPTABILIDAD RESPONSIVE COMPLETA */
+  @media (max-width: 1024px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    .left-col {
+      align-items: center;
+      max-width: 100%;
+    }
+
+    .archive-header,
+    .cta-row {
+      justify-content: center;
+    }
+
+    .quote {
+      max-width: 100%;
+    }
+
+    .right-col {
+      justify-content: center;
     }
   }
 
-  @media (max-width: 768px) {
-    .content-wrapper { padding: 0 1.5rem; }
-    .featured-grid { grid-template-columns: 1fr; }
-    .hero { grid-template-columns: 1fr; }
+  @media (max-width: 850px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 580px) {
+    .header-full-screen header {
+      padding: 1rem !important;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    .frame-wrapper {
+      width: 320px;
+      height: 400px;
+    }
+
+    .photo-container {
+      top: 78px;
+      left: 59px;
+      width: 200px;
+      height: 244px;
+    }
+
+    .index-numbers {
+      display: none;
+    }
+
     .footer-container {
       grid-template-columns: 1fr;
-      gap: 2rem;
     }
   }
 </style>
