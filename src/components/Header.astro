@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 const pathname = Astro.url.pathname;
 ---
 
@@ -10,11 +11,11 @@ const pathname = Astro.url.pathname;
   </div>
 
   <nav class="nav">
-    <a href="/" class={pathname === '/' || pathname === '' ? 'active' : ''} data-es="INICIO" data-en="HOME">INICIO</a>
-    <a href="/ensayos" class={pathname.startsWith('/ensayos') ? 'active' : ''} data-es="ENSAYOS" data-en="ESSAYS">ENSAYOS</a>
-    <a href="/biblioteca" class={pathname.startsWith('/biblioteca') ? 'active' : ''} data-es="BIBLIOTECA" data-en="LIBRARY">BIBLIOTECA</a>
-    <a href="/cv" class={pathname.startsWith('/cv') ? 'active' : ''}>CV</a>
-    <a href="/contacto" class={pathname.startsWith('/contacto') ? 'active' : ''} data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
+    <a href={`${base}/`} class={pathname === `${base}/` || pathname === `${base}` ? 'active' : ''} data-es="INICIO" data-en="HOME">INICIO</a>
+    <a href={`${base}/ensayos`} class={pathname.includes('/ensayos') ? 'active' : ''} data-es="ENSAYOS" data-en="ESSAYS">ENSAYOS</a>
+    <a href={`${base}/biblioteca`} class={pathname.includes('/biblioteca') ? 'active' : ''} data-es="BIBLIOTECA" data-en="LIBRARY">BIBLIOTECA</a>
+    <a href={`${base}/cv`} class={pathname.includes('/cv') ? 'active' : ''}>CV</a>
+    <a href={`${base}/contacto`} class={pathname.includes('/contacto') ? 'active' : ''} data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
   </nav>
 
   <div class="controls">
