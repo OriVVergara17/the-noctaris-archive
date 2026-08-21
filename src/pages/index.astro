@@ -28,12 +28,12 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   </head>
   <body>
 
-    <!-- CAPA DE FONDO: MARCA DE AGUA CORREGIDA Y FORZADA -->
-    <div class="watermark-container" aria-hidden="true" style="position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100vh !important; pointer-events: none !important; z-index: 0 !important; overflow: hidden !important;">
+   <!-- CAPA DE FONDO: MARCA DE AGUA CORREGIDA Y EXPANDIDA -->
+    <div class="watermark-container" aria-hidden="true" style="position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100vh !important; pointer-events: none !important; z-index: -1 !important; overflow: hidden !important;">
       <img 
         src={bgArt} 
         alt="" 
-        style="position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; opacity: 0.08 !important; mix-blend-mode: multiply !important; filter: grayscale(100%) contrast(105%) !important; pointer-events: none !important;" 
+        style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; opacity: 0.12 !important; mix-blend-mode: multiply !important; filter: grayscale(100%) contrast(105%) !important; pointer-events: none !important;" 
       />
       <div class="watermark-text">NOCTARIS</div>
     </div>
@@ -45,89 +45,89 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 
     <!-- CONTENEDOR PRINCIPAL -->
     <div class="content-wrapper">
-      <main class="hero">
-        <!-- COLUMNA IZQUIERDA: TEXTO Y ACCIONES -->
-        <div class="left-col">
-          <div class="archive-header">
-            <span class="archive-no">ARCHIVE No. 001</span>
-            <span class="pseudonym-tag">ALIAS · NOCTARIS</span>
-          </div>
-
-          <div class="hero-title">
-            <h1>ORIANA YADHIRA<br />VÉRTIZ VERGARA</h1>
-            <p class="tagline" 
-               data-es="CIENTISTA POLÍTICA · ANALISTA POLÍTICA & SOCIAL · INVESTIGACIÓN"
-               data-en="POLITICAL SCIENTIST · POLITICAL & SOCIAL ANALYST · RESEARCH">
-              CIENTISTA POLÍTICA · ANALISTA POLÍTICA & SOCIAL · INVESTIGACIÓN
-            </p>
-          </div>
-
-          <!-- REPRODUCTOR CÁPSULA DORADA -->
-          <div class="vintage-audio-pill">
-            <span class="pill-prefix">$ play</span>
-
-            <button id="audio-toggle" class="pill-play-btn" type="button" aria-label="Reproducir pista">
-              <svg id="play-icon" viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-              <svg id="pause-icon" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display: none;">
-                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-              </svg>
-            </button>
-
-            <div class="sound-wave">
-              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
-
-            <span class="pill-badge">NOCTARIS</span>
-            <span class="pill-suffix">AMBIENCE</span>
-
-            <audio id="hero-audio" src={cancionAudio}></audio>
-          </div>
-
-          <p class="quote"
-             data-es="“Un archivo pensado para disecar las dinámicas del poder, desafiar los dogmas evidentes y mirar siempre más allá de la superficie.”"
-             data-en="“An archive designed to dissect power dynamics, challenge self-evident dogmas, and always look beyond the surface.”">
-            “Un archivo pensado para disecar las dinámicas del poder, desafiar los dogmas evidentes y mirar siempre más allá de la superficie.”
-          </p>
-
-          <div class="cta-row">
-            <a href="/ensayos" class="btn" data-es="EXPLORAR ENSAYOS →" data-en="EXPLORE ESSAYS →">EXPLORAR ENSAYOS &rarr;</a>
-            <span class="est">EST. 2026</span>
-          </div>
+      <main class="hero" style="display: flex !important; justify-content: center !important; align-items: center !important; gap: 3rem !important; width: 100% !important; max-width: 1280px !important; margin: 0 auto !important; padding: 2rem 1rem !important;">
+      <!-- COLUMNA IZQUIERDA: TEXTO CENTRADO Y LIMPIO -->
+      <div class="left-col" style="flex: 1 !important; max-width: 580px !important;">
+        <div class="archive-header">
+          <span class="archive-no">ARCHIVE No. 001</span>
+          <span class="pseudonym-tag">ALIAS · NOCTARIS</span>
         </div>
 
-        <!-- COLUMNA DERECHA: MARCO BARROCO -->
-        <div class="right-col">
-          <div style="position: relative !important; width: 320px !important; height: 400px !important; flex-shrink: 0 !important; display: block !important;">
-            
-            <!-- Fotografía recortada y centrada al fondo -->
-            <div style="position: absolute !important; top: 18% !important; left: 18% !important; width: 64% !important; height: 64% !important; overflow: hidden !important; z-index: 1 !important;"> 
-              <img 
-                src={miFoto} 
-                alt="Oriana Yadhira Vértiz Vergara" 
-                style="width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; filter: grayscale(100%) contrast(105%) !important; display: block !important;" 
-              />
-            </div>
+        <div class="hero-title">
+          <h1>ORIANA YADHIRA<br />VÉRTIZ VERGARA</h1>
+          <p class="tagline" 
+             data-es="CIENTISTA POLÍTICA · ANALISTA POLÍTICA & SOCIAL · INVESTIGACIÓN"
+             data-en="POLITICAL SCIENTIST · POLITICAL & SOCIAL ANALYST · RESEARCH">
+            CIENTISTA POLÍTICA · ANALISTA POLÍTICA & SOCIAL · INVESTIGACIÓN
+          </p>
+        </div>
 
-            <!-- Marco dorado encima con z-index superior -->
+        <!-- REPRODUCTOR CÁPSULA DORADA -->
+        <div class="vintage-audio-pill">
+          <span class="pill-prefix">$ play</span>
+
+          <button id="audio-toggle" class="pill-play-btn" type="button" aria-label="Reproducir pista">
+            <svg id="play-icon" viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg id="pause-icon" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display: none;">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+          </button>
+
+          <div class="sound-wave">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+
+          <span class="pill-badge">NOCTARIS</span>
+          <span class="pill-suffix">AMBIENCE</span>
+
+          <audio id="hero-audio" src={cancionAudio}></audio>
+        </div>
+
+        <p class="quote"
+           data-es="“Un archivo pensado para disecar las dinámicas del poder, desafiar los dogmas evidentes y mirar siempre más allá de la superficie.”"
+           data-en="“An archive designed to dissect power dynamics, challenge self-evident dogmas, and always look beyond the surface.”">
+          “Un archivo pensado para disecar las dinámicas del poder, desafiar los dogmas evidentes y mirar siempre más allá de la superficie.”
+        </p>
+
+        <div class="cta-row">
+          <a href="/ensayos" class="btn" data-es="EXPLORAR ENSAYOS →" data-en="EXPLORE ESSAYS →">EXPLORAR ENSAYOS &rarr;</a>
+          <span class="est">EST. 2026</span>
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA: MARCO INTEGRADO Y ALINEADO -->
+      <div class="right-col" style="display: flex !important; align-items: center !important; gap: 1.2rem !important; flex-shrink: 0 !important;">
+        <div style="position: relative !important; width: 420px !important; height: 525px !important; display: block !important;">
+          
+          <!-- Fotografía -->
+          <div style="position: absolute !important; top: 102px !important; left: 78px !important; width: 263px !important; height: 320px !important; overflow: hidden !important; z-index: 1 !important;"> 
             <img 
-              src={frameImg} 
-              alt="" 
-              style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: contain !important; z-index: 10 !important; pointer-events: none !important;" 
+              src={miFoto} 
+              alt="Oriana Yadhira Vértiz Vergara" 
+              style="width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; filter: grayscale(100%) contrast(105%) !important; display: block !important;" 
             />
           </div>
 
-          <!-- ÍNDICE LATERAL -->
-          <div class="index-numbers">
-            <span class="num active">01</span>
-            <span class="num">02</span>
-            <span class="num">03</span>
-            <span class="num">04</span>
-            <span class="num">05</span>
-          </div>
+          <!-- Marco dorado -->
+          <img 
+            src={frameImg} 
+            alt="" 
+            style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: contain !important; z-index: 10 !important; pointer-events: none !important;" 
+          />
         </div>
-      </main>
+
+        <!-- ÍNDICE LATERAL -->
+        <div class="index-numbers">
+          <span class="num active">01</span>
+          <span class="num">02</span>
+          <span class="num">03</span>
+          <span class="num">04</span>
+          <span class="num">05</span>
+        </div>
+      </div>
+    </main>
 
       <!-- SECCIÓN ACTIVIDAD EN GITHUB -->
       <section class="github-section">
@@ -516,7 +516,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     font-family: 'Times New Roman', Times, Georgia, serif;
     font-size: clamp(8rem, 18vw, 22rem);
     font-weight: 400;
-    color: var(--accent);
+    color: var(--accent, #c5a059);
     opacity: 0.05;
     letter-spacing: 0.03em;
     white-space: nowrap;
@@ -528,7 +528,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   .hero {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 2.5rem;
+    gap: 0rem !important;
     align-items: center;
     padding-top: 1.5rem;
     width: 100%;
@@ -550,14 +550,14 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   .archive-no {
     font-size: 0.72rem;
     letter-spacing: 0.08em;
-    color: var(--muted);
+    color: var(--muted, #8c8275);
   }
 
   .pseudonym-tag {
     font-size: 0.68rem;
     letter-spacing: 0.1em;
-    color: var(--accent);
-    border: 1px solid var(--accent);
+    color: var(--accent, #c5a059);
+    border: 1px solid var(--accent, #c5a059);
     padding: 0.2rem 0.5rem;
     border-radius: 2px;
     font-weight: 500;
@@ -573,16 +573,16 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   .tagline {
     font-size: 0.75rem;
     letter-spacing: 0.06em;
-    color: var(--accent);
+    color: var(--accent, #c5a059);
     font-weight: 500;
   }
 
   .quote {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif, serif);
     font-style: italic;
     font-size: 1.35rem;
     line-height: 1.45;
-    color: var(--muted);
+    color: var(--muted, #666);
     max-width: 98%;
   }
 
@@ -594,17 +594,17 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   .btn {
-    color: var(--text);
+    color: var(--text, #333);
     text-decoration: none;
     font-size: 0.78rem;
     letter-spacing: 0.08em;
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent, #c5a059);
     padding-bottom: 0.3rem;
     transition: color 0.3s;
   }
 
-  .btn:hover { color: var(--accent); }
-  .est { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--muted); }
+  .btn:hover { color: var(--accent, #c5a059); }
+  .est { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--muted, #8c8275); }
 
   .right-col {
     display: flex;
@@ -618,11 +618,11 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     flex-direction: column;
     gap: 1.5rem;
     font-size: 0.85rem;
-    color: var(--muted);
+    color: var(--muted, #aaa);
   }
 
   .index-numbers .num.active {
-    color: var(--accent);
+    color: var(--accent, #c5a059);
     font-weight: 600;
   }
 
@@ -633,10 +633,10 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   .github-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif, serif);
     font-size: 1.5rem;
     font-weight: 400;
-    color: var(--text);
+    color: var(--text, #333);
     margin-bottom: 1.2rem;
     letter-spacing: -0.01em;
   }
@@ -652,7 +652,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   .github-chart-card:hover {
-    border-color: var(--accent);
+    border-color: var(--accent, #c5a059);
   }
 
   .github-chart {
@@ -698,7 +698,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   .featured-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif, serif);
     font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -720,7 +720,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     border: 1px solid rgba(197, 160, 89, 0.35);
     border-radius: 18px;
     text-decoration: none;
-    color: var(--text);
+    color: var(--text, #333);
     backdrop-filter: blur(6px);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
@@ -732,12 +732,12 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   .card-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif, serif);
     font-size: 1.35rem;
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: 0.8rem;
-    color: var(--text);
+    color: var(--text, #333);
     transition: color 0.2s ease;
   }
 
@@ -750,7 +750,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     align-items: center;
     gap: 1.2rem;
     font-size: 0.8rem;
-    color: var(--muted);
+    color: var(--muted, #777);
     margin-bottom: 1rem;
   }
 
@@ -763,7 +763,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   .card-desc {
     font-size: 0.9rem;
     line-height: 1.55;
-    color: var(--muted);
+    color: var(--muted, #555);
     margin-bottom: 1.6rem;
     flex-grow: 1;
   }
@@ -810,17 +810,17 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   .footer-name {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif, serif);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text);
+    color: var(--text, #333);
     margin-bottom: 0.8rem;
     line-height: 1.25;
   }
 
   .footer-desc {
     font-size: 0.88rem;
-    color: var(--muted);
+    color: var(--muted, #666);
     line-height: 1.5;
     margin-bottom: 1.5rem;
     max-width: 280px;
@@ -828,7 +828,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 
   .footer-copy {
     font-size: 0.78rem;
-    color: var(--muted);
+    color: var(--muted, #666);
     line-height: 1.5;
     opacity: 0.8;
   }
@@ -837,7 +837,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: var(--text);
+    color: var(--text, #333);
     margin-bottom: 1.2rem;
     text-transform: uppercase;
   }
@@ -852,36 +852,36 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   .footer-links a {
-    color: var(--muted);
+    color: var(--muted, #666);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s ease;
   }
 
-  .footer-links a:hover { color: var(--accent); }
+  .footer-links a:hover { color: var(--accent, #c5a059); }
 
   .contact-info {
     font-size: 0.9rem;
     line-height: 1.5;
-    color: var(--text);
+    color: var(--text, #333);
     margin-bottom: 0.8rem;
   }
 
   .contact-info .muted-text {
     font-size: 0.82rem;
-    color: var(--muted);
+    color: var(--muted, #666);
   }
 
   .email-link {
     font-size: 0.88rem;
-    color: var(--text);
+    color: var(--text, #333);
     text-decoration: underline;
     text-underline-offset: 4px;
     transition: color 0.2s ease;
     word-break: break-all;
   }
 
-  .email-link:hover { color: var(--accent); }
+  .email-link:hover { color: var(--accent, #c5a059); }
 
   .social-icons {
     display: flex;
@@ -890,7 +890,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
   }
 
   .social-btn {
-    color: var(--text);
+    color: var(--text, #333);
     opacity: 0.85;
     transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
     display: inline-flex;
@@ -900,7 +900,7 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
 
   .social-btn:hover {
     opacity: 1;
-    color: var(--accent);
+    color: var(--accent, #c5a059);
     transform: translateY(-2px);
   }
 
