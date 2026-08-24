@@ -1,7 +1,8 @@
 ---
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<footer class="site-footer">
+<footer class="site-footer" style={`background-image: url('${baseUrl}images/bg-art.png');`}>
   <div class="footer-container">
     <!-- COLUMNA 1: NOMBRE & COPYRIGHT -->
     <div class="footer-col col-brand">
@@ -19,11 +20,21 @@
     <div class="footer-col">
       <h3 class="footer-heading" data-es="ENLACES RÁPIDOS" data-en="QUICK LINKS">ENLACES RÁPIDOS</h3>
       <ul class="footer-links">
-        <li><a href="/" data-es="Inicio" data-en="Home">Inicio</a></li>
-        <li><a href="/ensayos" data-es="Ensayos" data-en="Essays">Ensayos</a></li>
-        <li><a href="/biblioteca" data-es="Biblioteca" data-en="Library">Biblioteca</a></li>
-        <li><a href="/cv" data-es="CV" data-en="CV">CV</a></li>
-        <li><a href="/contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+        <li>
+          <a href={baseUrl} data-es="Inicio" data-en="Home">Inicio</a>
+        </li>
+        <li>
+          <a href={`${baseUrl}ensayos`} data-es="Ensayos" data-en="Essays">Ensayos</a>
+        </li>
+        <li>
+          <a href={`${baseUrl}biblioteca`} data-es="Biblioteca" data-en="Library">Biblioteca</a>
+        </li>
+        <li>
+          <a href={`${baseUrl}cv`} data-es="CV" data-en="CV">CV</a>
+        </li>
+        <li>
+          <a href={`${baseUrl}contacto`} data-es="Contacto" data-en="Contact">Contacto</a>
+        </li>
       </ul>
     </div>
 
@@ -50,6 +61,7 @@
             <path d="M9 18c-4.51 2-5-2-7-2"></path>
           </svg>
         </a>
+
         <!-- Email -->
         <a href="mailto:orianayvertizvergara@outlook.com" aria-label="Email" class="social-btn" title="Email">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -57,6 +69,7 @@
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
           </svg>
         </a>
+
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/oriana-yadhira-v%C3%A9rtiz-vergara-805652410/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-btn" title="LinkedIn">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -72,130 +85,88 @@
 
 <style>
   .site-footer {
-    margin-top: 5rem;
-    padding-top: 3.5rem;
-    padding-bottom: 4rem;
-    border-top: 1px solid rgba(160, 140, 100, 0.25);
     width: 100%;
+    background-color: #f4f0ea;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 3rem 1.5rem 2rem 1.5rem;
+    color: #2c2c2c;
   }
 
   .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1.3fr 0.8fr;
-    gap: 2.5rem;
-    align-items: start;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr;
+    gap: 2rem;
   }
 
   .footer-name {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.8rem;
-    line-height: 1.25;
+    font-family: serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
   }
 
-  .footer-desc {
-    font-size: 0.88rem;
-    color: var(--muted);
+  .footer-desc, .footer-copy, .contact-info, .footer-links {
+    font-size: 0.875rem;
     line-height: 1.5;
-    margin-bottom: 1.5rem;
-    max-width: 280px;
-  }
-
-  .footer-copy {
-    font-size: 0.78rem;
-    color: var(--muted);
-    line-height: 1.5;
-    opacity: 0.8;
+    color: #555;
   }
 
   .footer-heading {
     font-size: 0.75rem;
+    letter-spacing: 0.1em;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--text);
-    margin-bottom: 1.2rem;
-    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: #333;
   }
 
   .footer-links {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
   }
 
-  .footer-links a {
-    color: var(--muted);
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links a, .email-link {
+    color: inherit;
     text-decoration: none;
-    font-size: 0.9rem;
     transition: color 0.2s ease;
   }
 
-  .footer-links a:hover {
-    color: var(--accent);
-  }
-
-  .contact-info {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: var(--text);
-    margin-bottom: 0.8rem;
-  }
-
-  .contact-info .muted-text {
-    font-size: 0.82rem;
-    color: var(--muted);
-  }
-
-  .email-link {
-    font-size: 0.88rem;
-    color: var(--text);
+  .footer-links a:hover, .email-link:hover {
+    color: #000;
     text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: color 0.2s ease;
-    word-break: break-all;
-  }
-
-  .email-link:hover {
-    color: var(--accent);
   }
 
   .social-icons {
     display: flex;
-    align-items: center;
-    gap: 1.1rem;
+    gap: 0.75rem;
   }
 
   .social-btn {
-    color: var(--text);
-    opacity: 0.85;
-    transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
+    color: #333;
+    transition: transform 0.2s ease, color 0.2s ease;
   }
 
   .social-btn:hover {
-    opacity: 1;
-    color: var(--accent);
+    color: #000;
     transform: translateY(-2px);
   }
 
-  @media (max-width: 850px) {
-    .footer-container {
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem 1.5rem;
-    }
-  }
-
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     .footer-container {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
     }
   }
 </style>
