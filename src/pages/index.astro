@@ -137,35 +137,35 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
       </section>
 
       <!-- SECCIÓN ÁREAS DE ANÁLISIS -->
-<section class="analysis-section">
-  <h2 class="analysis-title" data-es="Mis áreas de Análisis" data-en="My Areas of Analysis">Mis áreas de Análisis</h2>
-  
-  <div class="analysis-grid">
-    <!-- Tarjeta 1 -->
-    <div class="analysis-card">
-      <div class="icon-wrapper">
-        <img src="images/politicas-publicas.png" alt="Políticas públicas" class="analysis-img" />
+  <section class="analysis-section">
+    <h2 class="analysis-title" data-es="Mis áreas de Análisis" data-en="My Areas of Analysis">Mis áreas de Análisis</h2>
+    
+    <div class="analysis-grid">
+      <!-- Tarjeta 1 -->
+      <div class="analysis-card">
+        <div class="icon-wrapper">
+          <img src="/images/politicas-publicas.png" alt="Políticas públicas" class="analysis-img" />
+        </div>
+        <h3 data-es="Políticas Públicas y Proyectos Sociales" data-en="Public Policy & Social Projects">Políticas Públicas y Proyectos Sociales</h3>
       </div>
-      <h3 data-es="Políticas Públicas y Proyectos Sociales" data-en="Public Policy & Social Projects">Políticas Públicas y Proyectos Sociales</h3>
-    </div>
 
-    <!-- Tarjeta 2 -->
-    <div class="analysis-card">
-      <div class="icon-wrapper">
-        <img src="images/politica-comparada.png" alt="Política comparada" class="analysis-img" />
+      <!-- Tarjeta 2 -->
+      <div class="analysis-card">
+        <div class="icon-wrapper">
+          <img src="/images/politica-comparada.png" alt="Política comparada" class="analysis-img" />
+        </div>
+        <h3 data-es="Política Comparada" data-en="Comparative Politics">Política Comparada</h3>
       </div>
-      <h3 data-es="Política Comparada" data-en="Comparative Politics">Política Comparada</h3>
-    </div>
 
-    <!-- Tarjeta 3 -->
-    <div class="analysis-card">
-      <div class="icon-wrapper">
-        <img src="images/redaccion.png" alt="Redacción" class="analysis-img" />
+      <!-- Tarjeta 3 -->
+      <div class="analysis-card">
+        <div class="icon-wrapper">
+          <img src="/images/redaccion.png" alt="Redacción" class="analysis-img" />
+        </div>
+        <h3 data-es="Redacción y Publicaciones" data-en="Writing & Publications">Redacción y Publicaciones</h3>
       </div>
-      <h3 data-es="Redacción y Publicaciones" data-en="Writing & Publications">Redacción y Publicaciones</h3>
     </div>
-  </div>
-</section>
+  </section>
       <!-- SECCIÓN PROYECTOS DESTACADOS -->
       <section class="featured-section">
         <div class="featured-header">
@@ -862,10 +862,10 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   }
 
-  /* Contenedor más grande con perspectiva 3D */
+  /* Contenedor amplio con perspectiva 3D */
   .icon-wrapper {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
@@ -873,20 +873,20 @@ const ensayosAMostrar = destacados.length > 0 ? destacados.slice(0, 2) : todosLo
     perspective: 1000px;
   }
 
-  /* Imagen amplia, sombreada y con soporte 3D */
+  /* Forzar tamaño de la imagen PNG y aplicar efecto 3D flotante */
   .analysis-img {
-    width: 100%;
-    height: 100%;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
-    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
     transform-style: preserve-3d;
   }
 
-  /* Animación 3D al pasar el cursor sobre la tarjeta */
+  /* Animación 3D inclinada en Hover */
   .analysis-card:hover .analysis-img {
-    transform: scale(1.18) translateZ(25px) rotateX(10deg) rotateY(-12deg);
-    filter: drop-shadow(-10px 18px 20px rgba(0, 0, 0, 0.35));
+    transform: scale(1.2) translateZ(30px) rotateX(12deg) rotateY(-12deg);
+    filter: drop-shadow(-12px 20px 22px rgba(0, 0, 0, 0.4));
   }
 
   .analysis-card h3 {
