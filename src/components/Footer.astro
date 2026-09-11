@@ -2,7 +2,7 @@
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<footer class="site-footer" style={`background-image: url('${baseUrl}images/bg-art.png');`}>
+<footer class="site-footer">
   <div class="footer-container">
     <!-- COLUMNA 1: NOMBRE & COPYRIGHT -->
     <div class="footer-col col-brand">
@@ -84,16 +84,13 @@ const baseUrl = import.meta.env.BASE_URL;
 </footer>
 
 <style>
-  .site-footer {
-    width: 100%;
-    background-color: #f4f0ea;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 3rem 1.5rem 2rem 1.5rem;
-    color: #2c2c2c;
-  }
+ .site-footer {
+  width: 100%;
+  background-color: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 3rem 1.5rem 2rem 1.5rem;
+  color: #2c2c2c;
+}
 
   .footer-container {
     max-width: 1200px;
