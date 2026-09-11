@@ -160,6 +160,149 @@ Dejando así, finalmente que; las designaciones unilaterales de terrorismo choca
         Bogdanova, I. (2024, marzo 11). Human rights and unilateral economic sanctions: A new perspective on a twisted relationship. Wti.org.
         <a href="https://www.wti.org/research/publications/1434/human-rights-and-unilateral-economic-sanctions-a-new-perspective-on-a-twisted-relationship/?utm" target="_blank" rel="noopener noreferrer">Ver fuente</a>
       </li>
+      <li>
+        Butchard, P. (2017, September 18). Strategy Not Sacrilege: State Terrorism as an Element of Foreign Policy. E-International Relations.
+        <a href="https://www.e-ir.info/2017/09/18/strategy-not-sacrilege-state-terrorism-as-an-eleNeversment-of-foreign-policy/" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Blazakis, J. (2020). Using a Terrorism List to Squeeze Cuba and Venezuela. Lawfare.
+        <a href="https://www.lawfaremedia.org/article/using-terrorism-list-squeeze-cuba-and-venezuela" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Byman, D. L. (2008, May 29). The Changing Nature of State Sponsorship of Terrorism. Brookings.
+        <a href="https://www.brookings.edu/articles/the-changing-nature-of-state-sponsorship-of-terrorism/" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Byman, D. (2020). Understanding, and Misunderstanding, State Sponsorship of Terrorism. Studies in Conflict & Terrorism, 45(12), 1031–1049.
+        <a href="https://doi.org/10.1080/1057610X.2020.1738682" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Carr, E. H. (2004). La crisis de los veinte años, 1919-1939: una introducción al estudio de las relaciones internacionales. Los libros de la Catarata.
+        <a href="https://www.ucentral.cl/ucentral/site/docs/20131229/20131229231633/96000512.pdf" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        De Nevers, R. (2007). Sovereignty and Ethical Argument in the Struggle against State Sponsors of Terrorism. Journal of Military Ethics, 6(1), 1–18.
+        <a href="https://doi.org/10.1080/15027570701228511" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Declaración sobre los principios de derecho internacional referentes a las relaciones de amistad y a la cooperación entre los Estados de conformidad con la Carta de las Naciones Unidas. (n.d.).
+        <a href="https://legal.un.org/avl/pdf/ha/dpilfrcscun/dpilfrcscun_ph_s.pdf" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        dipublico. (2010, June 24). Resolución 2131 (XX) de la Asamblea General de las Naciones Unidas. Declaración sobre la inadmisibilidad de la intervención en loa asuntos internos de los Estados y protección de su independencia y soberanía. Derecho Internacional Público - Dipublico.org.
+        <a href="https://www.dipublico.org/3975/resolucion-2131-xx-de-la-asamblea-general-de-las-naciones-unidas-declaracion-sobre-la-inadmisibili-dad-de-la-intervencion-en-loa-asuntos-inter%C2%ADnos-de-los-estados-y-proteccion-de-su-inde%C2%A/" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Fitzpatrick, J. (2003). Human Rights in Crisis: The International System for Protecting Rights During States of Emergency. European Journal of International Law, 14(2).
+      </li>
+      <li>
+        Foreign Ministry Spokesperson Guo Jiakun’s Regular Press Conference on March 25, 2025_Ministry of Foreign Affairs of the People’s Republic of China. (2025). Mfa.gov.cn.
+        <a href="https://www.mfa.gov.cn/eng/xw/fyrbt/202503/t20250325_11581716.html#:~:text=Guo%20Jiakun%3A%20The%20U.S.%20has,China%20firmly%20opposes%20such%20actions" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Goldsmith, J. (2007). The Terror Presidency: Law and Judgment Inside the Bush Administration. W.W. Norton & Company.
+        <a href="https://archive.org/details/terrorpresidency0000gold_d7g4" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Hesson, T. (2025, February 19). US declares Tren de Aragua, other cartels are global terrorist organizations. Reuters.
+        <a href="https://www.reuters.com/world/us-declares-tren-de-aragua-other-cartels-are-global-terrorist-organizations-2025-02-19/#:~:text=WASHINGTON%2C%20Feb%2019%20%28Reuters%29%20,S" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Kattan, Victor Matthew, Furthering the ‘War on Terrorism’ through International Law: How the United States and the United Kingdom Resurrected the Bush Doctrine on Using Preventive Military Force to Combat Terrorism (September 22, 2017). Journal on the Use of Force and International Law 2017, Vol 5(1).
+        <a href="https://doi.org/10.1080/20531702.2017.1376929" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Lobell, S. E. (2017). Structural Realism/Offensive and Defensive Realism. Oxford University Press eBooks.
+        <a href="https://doi.org/10.1093/acrefore/9780190846626.013.304" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Loertscher, S., Milton, D., Price, B., & Loertscher, C. (2020). The Foreign Terrorist Organization (FTO) List. In The Terrorist Lists: An Examination of the U.S. Government’s Counterterrorism Designation Efforts (pp. 5–24). Combatting Terrorism Center at West Point.
+        <a href="http://www.jstor.org/stable/resrep26666.5" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Maurer, T., & Douhan, A. (2023). Over-compliance with unilateral sanctions hurts human rights. UN News.
+        <a href="https://news.un.org/en/story/2023/09/1140812" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        MIRANDA, A. (2025). Parliamentary question | Cuba on the so-called “list of state sponsors of terrorism” | O-000006/2025 | European Parliament. Europa.eu.
+        <a href="https://www.europarl.europa.eu/doceo/document/O-10-2025-000006_EN.html" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Murphy, Sean D. The Doctrine of Preemptive Self-Defense, 50 Vill. L. Rev. 699 (2005).
+        <a href="https://digitalcommons.law.villanova.edu/vlr/vol50/iss3/9" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        McCluskey, M. (2014, January 26). The United States’ “outdated” terror list. Al Jazeera.
+        <a href="https://www.aljazeera.com/features/2014/1/26/the-united-states-outdated-terror-list" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Naciones Unidas. (1945). Carta de las Naciones Unidas. In Carta De Las Naciones Unidas.
+        <a href="https://www.oas.org/36ag/espanol/doc_referencia/carta_nu.pdf" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Reisman WM, Armstrong A. The Past and Future of the Claim of Preemptive Self-Defense. American Journal of International Law. 2006;100(3):525-550.
+        <a href="https://doi.org/10.1017/S0002930000031043" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Resolución 2625. (n.d.).
+        <a href="https://iri.edu.ar/publicaciones_iri/IRI%20COMPLETO%20-%20Publicaciones-V05/Publicaciones/I2/I2-2F.htm" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Roncagliolo Benítez, Ignacio. (2015). El principio de no intervención: consagración, evolución y problemas en el Derecho Internacional actual. Ius et Praxis, 21(1), 449-502.
+        <a href="https://dx.doi.org/10.4067/S0718-00122015000100013" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Sun, M. (2014, febrero 12). Balance of Power Theory in Today’s International System. E-International Relations.
+        <a href="https://www.e-ir.info/2014/02/12/balance-of-power-theory-in-todays-international-system/" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Scheinin, M., & Vermeulen, M. (2011). Unilateral Exceptions to International Law: Systematic Legal Analysis and Critique of Doctrines to Deny or Reduce the Applicability of Human Rights Norms in the Fight Against Terrorism. Essex Human Rights Review, 8(1), 20–56.
+        <a href="https://hdl.handle.net/1814/19056" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Schweller, R. L. (2010, December 16). Unanswered Threats: Political Constraints on the Balance of Power. ResearchGate.
+        <a href="https://www.researchgate.net/publication/287601167_Unanswered_Threats_Political_Constraints_on_the_Balance_of_Power" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Schmitt, Michael N. Preemptive Strategies in International Law, 24 Mich. J. Int'l L. 513 (2003).
+        <a href="https://repository.law.umich.edu/mjil/vol24/iss2/1" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Sheikh, T. M. (2025, January 14). Unilateral Sanctions: A Violation of Article 2 of the United Nations Charter? Georgetown University Undergraduate Law Review; Georgetown University.
+        <a href="https://sanctionsplatform.ohchr.org/record/24561?ln=es&v=pdf" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Steinbach, A. (2022, November 2). Human rights sanctions often fail to improve human rights. HEC Paris.
+        <a href="https://www.hec.edu/en/knowledge/articles/human-rights-sanctions-often-fail-improve-human-rights?utm" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Steinberg, J. B., O’Hanlon, M. E., & Rice, S. E. (2002, December 21). The new National Security Strategy and Preemption. Brookings.
+        <a href="https://www.brookings.edu/articles/the-new-national-security-strategy-and-preemption/" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Strauss, M. J. (2021). The (il)legality of unilateral sanctions in light of the inadequacy of humanitarian exemptions. Journal of the Belarusian State University. International Relations, 1, 86-97.
+        <a href="https://journals.bsu.by/index.php/internationalRelations/article/view/3515" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Toft, P. (2005). John J. Mearsheimer: an offensive realist between geopolitics and power. Journal of International Relations and Development, 8(4).
+        <a href="https://doi.org/10.1057/palgrave.jird.1800065" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        The National Security Strategy 2002. (2007, November 4). The White House Archives.gov.
+        <a href="https://georgewbush-whitehouse.archives.gov/nsc/nss/2002/" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Venezuela no pudo votar en Asamblea General de Naciones Unidas resolución de rechazo al bloqueo estadounidense contra Cuba. (2024, November). El Popular.
+        <a href="https://elpopular.uy/venezuela-no-pudo-votar-en-asamblea-general-de-naciones-unidas-resolucion-de-rechazo-al-bloqueo-estadounidense-contra-cuba/#:~:text=Moncada%20rechaz%C3%B3%20adem%C3%A1s%20la%20inclusi%C3%B3n,%E2%80%9Cun%20acto%20de%20propaganda%20imperial%E2%80%9D" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        Wroughton, L., & Hafezi, P. (2019, April 9). In unprecedented move, U.S. names Iran’s Revolutionary Guards a terrorist group. Reuters.
+        <a href="https://www.reuters.com/article/world/in-unprecedented-move-us-names-irans-revolutionary-guards-a-terrorist-group-idUSKCN1RK1NO/" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
+      <li>
+        焦元. (2024). China opposes US’ illegal unilateral sanctions on Venezuela: spokesperson_China’s Diplomacy in the New Era. Chinadiplomacy.org.cn.
+        <a href="https://en.chinadiplomacy.org.cn/2024-06/19/content_117261879.shtml" target="_blank" rel="noopener noreferrer">Ver fuente</a>
+      </li>
     </ul>
   </div>
 </details>
