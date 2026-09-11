@@ -731,4 +731,181 @@ if (Array.isArray(rawTags)) {
   .essay-body :global(.references-content a:hover) {
     color: #5c3a21;
   }
+  /* ==========================================
+   ESTILOS PARA MODO OSCURO (DARK MODE)
+   ========================================== */
+
+/* Contenedor principal y links en Dark Mode */
+:global(.dark) .essay-container {
+  color: #e6dfd5;
+}
+
+:global(.dark) .back-link {
+  color: #dca368;
+}
+
+:global(.dark) .back-link:hover {
+  color: #f0c394;
+}
+
+/* Hero Card en Dark Mode */
+:global(.dark) .hero-card {
+  background: #251b14;
+  border-color: #3d2c22;
+}
+
+:global(.dark) .hero-title {
+  color: #f3ece1;
+}
+
+:global(.dark) .tag-pill {
+  background: #3a2a1e;
+  color: #dca368;
+}
+
+:global(.dark) .hero-meta {
+  background: rgba(30, 22, 16, 0.8);
+  color: #c2b4a3;
+}
+
+/* Cuerpo del ensayo en Dark Mode */
+:global(.dark) .essay-body {
+  color: #e6dfd5;
+}
+
+:global(.dark) .essay-body :global(h2) {
+  color: #f3ece1;
+}
+
+:global(.dark) .essay-body :global(h3) {
+  color: #e8cca4;
+}
+
+:global(.dark) .essay-body :global(p),
+:global(.dark) .essay-body :global(li) {
+  color: #dcd3c5;
+}
+
+:global(.dark) .essay-body :global(a) {
+  color: #dca368;
+}
+
+:global(.dark) .essay-body :global(a:hover) {
+  color: #f0c394;
+}
+
+/* Divisor END y Secciones de Engagement */
+:global(.dark) .end-divider::before {
+  background: linear-gradient(90deg, transparent, #4a382b 20%, #4a382b 80%, transparent);
+}
+
+:global(.dark) .end-badge {
+  background: #251b14;
+  color: #a8988a;
+}
+
+:global(.dark) .section-subtitle {
+  color: #f3ece1;
+}
+
+:global(.dark) .reaction-emoji-btn,
+:global(.dark) .comment-card {
+  background: #1c140e;
+  border-color: #3d2c22;
+  color: #dcd3c5;
+}
+
+:global(.dark) .comment-tabs {
+  background: #251b14;
+  border-bottom-color: #3d2c22;
+}
+
+:global(.dark) .tab-btn {
+  color: #a8988a;
+}
+
+:global(.dark) .tab-btn.active {
+  background: #1c140e;
+  border-color: #3d2c22;
+  border-bottom-color: #1c140e;
+  color: #f3ece1;
+}
+
+:global(.dark) .comment-textarea {
+  background: #251b14;
+  border-color: #3d2c22;
+  color: #e6dfd5;
+}
+
+/* Sidebar en Dark Mode */
+:global(.dark) .toc-title {
+  color: #dca368;
+}
+
+:global(.dark) .toc-item {
+  color: #a8988a;
+}
+
+:global(.dark) .toc-item.depth-2 {
+  color: #e6dfd5;
+}
+
+:global(.dark) .toc-item.depth-3 {
+  border-left-color: #3d2c22;
+}
+
+:global(.dark) .toc-item:hover {
+  color: #dca368;
+}
+
+:global(.dark) .sidebar-divider {
+  background: #3d2c22;
+}
+
+:global(.dark) .share-btn {
+  background: #1c140e;
+  border-color: #3d2c22;
+  color: #c2b4a3;
+}
+
+:global(.dark) .share-btn:hover {
+  background: #251b14;
+  color: #dca368;
+  border-color: #5c412e;
+}
+
+/* Desplegable de Bibliografía en Dark Mode */
+:global(.dark) .essay-body :global(details.references-dropdown) {
+  border-color: #3d2c22;
+  background: #251b14;
+}
+
+:global(.dark) .essay-body :global(.references-summary) {
+  color: #f3ece1;
+}
+
+:global(.dark) .essay-body :global(.references-summary:hover) {
+  background: #312319;
+}
+
+:global(.dark) .essay-body :global(.dropdown-arrow) {
+  color: #dca368;
+}
+
+:global(.dark) .essay-body :global(.references-content) {
+  background: #1c140e;
+  border-top-color: #3d2c22;
+}
+
+:global(.dark) .essay-body :global(.references-content li) {
+  color: #dcd3c5;
+}
+
+:global(.dark) .essay-body :global(.references-content a) {
+  color: #dca368;
+}
+
+:global(.dark) .essay-body :global(.references-content a:hover) {
+  color: #f0c394;
+}
 </style>
