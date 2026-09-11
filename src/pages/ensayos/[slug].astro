@@ -660,4 +660,75 @@ if (Array.isArray(rawTags)) {
   .copy-toast.show {
     display: block;
   }
+  /* CAJA DESPLEGABLE DE BIBLIOGRAFÍA EN EL ENSAYO */
+  .essay-body :global(details.references-dropdown) {
+    margin-top: 3rem;
+    border: 1px solid #e8dfd1;
+    border-radius: 12px;
+    background: #f5efe6;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .essay-body :global(.references-summary) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    font-family: serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2c1d11;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .essay-body :global(.references-summary::-webkit-details-marker) {
+    display: none;
+  }
+
+  .essay-body :global(.references-summary:hover) {
+    background: #e8dfd1;
+  }
+
+  .essay-body :global(.dropdown-arrow) {
+    font-size: 0.8rem;
+    color: #8c5a2b;
+    transition: transform 0.3s ease;
+  }
+
+  .essay-body :global(details.references-dropdown[open] .dropdown-arrow) {
+    transform: rotate(180deg);
+  }
+
+  .essay-body :global(.references-content) {
+    padding: 1.2rem 1.5rem 1.5rem 2.5rem;
+    border-top: 1px solid #e8dfd1;
+    background: #ffffff;
+  }
+
+  .essay-body :global(.references-content ul) {
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  .essay-body :global(.references-content li) {
+    margin-bottom: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #4a3b32;
+    word-break: break-word;
+  }
+
+  .essay-body :global(.references-content a) {
+    color: #8c5a2b;
+    text-decoration: underline;
+    font-weight: 500;
+    margin-left: 0.3rem;
+  }
+
+  .essay-body :global(.references-content a:hover) {
+    color: #5c3a21;
+  }
 </style>
