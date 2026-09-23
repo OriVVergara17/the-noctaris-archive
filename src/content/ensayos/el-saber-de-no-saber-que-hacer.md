@@ -2,7 +2,7 @@
 title: "El saber de no saber qué hacer"
 description: "El efecto Dunning-Kruger explica menos de lo que promete, pero abre una pregunta que la ciencia política no puede eludir: qué significa decidir cuando se sabe que el conocimiento disponible no alcanza."
 date: 2026-09-23
-author: "OriVvergara17"
+author: "Oriana Yadhira Vértiz Vergara"
 ---
 
 El efecto Dunning-Kruger explica menos de lo que promete, pero abre una pregunta que la ciencia política no puede eludir: qué significa decidir cuando se sabe que el conocimiento disponible no alcanza.
