@@ -1,275 +1,311 @@
 ---
-// src/components/GraficoComercioExterior.astro
+const socios = [
+  {
+    pais: "China",
+    porcentaje: 35.1,
+    monto: "32,670 M",
+    detalle: "Principal socio comercial (cobre, hierro y harina de pescado)",
+  },
+  {
+    pais: "Estados Unidos",
+    porcentaje: 11.2,
+    monto: "10,425 M",
+    detalle: "Agroexportación, oro y textiles",
+  },
+  {
+    pais: "India",
+    porcentaje: 6.8,
+    monto: "6,329 M",
+    detalle: "Oro y minerales metálicos",
+  },
+  {
+    pais: "Canadá",
+    porcentaje: 5.4,
+    monto: "5,026 M",
+    detalle: "Minería y metales preciosos",
+  },
+  {
+    pais: "Bolivia",
+    porcentaje: 3.9,
+    monto: "3,630 M",
+    detalle: "Manufacturas, combustibles y alimentos",
+  },
+];
+
+const escalaMax = 40;
+const nivelesY = [40, 30, 20, 10, 0];
 ---
 
-<figure class="diplomacy-chart-card" id="chart-comercio-2025">
-  <div class="chart-header">
-    <div>
-      <span class="chart-kicker">DATA & POLÍTICA EXTERIOR • 2025</span>
-      <h4 class="chart-title">Concentración comercial y nueva conectividad del Perú</h4>
-      <p class="chart-subtitle">Distribución de exportaciones peruanas por destino principal (US$ 93.078 millones) e impacto logístico.</p>
-    </div>
-    <div class="chart-controls" role="group" aria-label="Cambiar unidad de visualización">
-      <button type="button" class="toggle-btn active" data-mode="percent">% Participación</button>
-      <button type="button" class="toggle-btn" data-mode="usd">Millones US$</button>
-    </div>
-  </div>
-
-  <!-- Barras interactivas -->
-  <div class="bars-container">
-    <div class="bar-row" data-partner="china">
-      <div class="bar-meta">
-        <span class="partner-name">🇨🇳 China</span>
-        <span class="partner-value" id="val-china">35,1 %</span>
-      </div>
-      <div class="bar-track">
-        <div class="bar-fill fill-china" style="width: 35.1%;"></div>
-      </div>
-      <p class="bar-note">Principal socio comercial; alta exposición a variaciones de demanda y tensiones geopolíticas.</p>
-    </div>
-
-    <div class="bar-row" data-partner="eeuu">
-      <div class="bar-meta">
-        <span class="partner-name">🇺🇸 Estados Unidos</span>
-        <span class="partner-value" id="val-eeuu">10,9 %</span>
-      </div>
-      <div class="bar-track">
-        <div class="bar-fill fill-eeuu" style="width: 10.9%;"></div>
-      </div>
-      <p class="bar-note">Segundo socio bilateral clave en manufacturas, agroexportación e inversiones estratégicas.</p>
-    </div>
-
-    <div class="bar-row" data-partner="resto">
-      <div class="bar-meta">
-        <span class="partner-name">🌐 Resto del mundo</span>
-        <span class="partner-value" id="val-resto">54,0 %</span>
-      </div>
-      <div class="bar-track">
-        <div class="bar-fill fill-resto" style="width: 54.0%;"></div>
-      </div>
-      <p class="bar-note">Espacio de diversificación: Unión Europea, APEC, Alianza del Pacífico y mercados emergentes.</p>
+<figure class="grafico-bcrp-wrapper" aria-label="Participación porcentual en las exportaciones peruanas según el BCRP">
+  <div class="grafico-header">
+    <p class="grafico-subtitulo">
+      Participación porcentual en las exportaciones peruanas, según el BCRP.
+    </p>
+    <div class="grafico-tooltip-bar" id="bcrp-info-bar" aria-live="polite">
+      <span class="info-pais">China</span>
+      <span class="info-sep">·</span>
+      <span class="info-valor">35.1% (US$ 32,670 M)</span>
     </div>
   </div>
 
-  <!-- Indicadores clave inferiores -->
-  <div class="kpi-grid">
-    <div class="kpi-box">
-      <span class="kpi-label">Exportaciones 2025</span>
-      <strong class="kpi-number">US$ 93.078 M</strong>
-      <span class="kpi-delta">+21,8 % crecimiento anual</span>
+  <div class="grafico-area">
+    <!-- Eje Y y líneas guía punteadas -->
+    <div class="eje-y-grid" aria-hidden="true">
+      {nivelesY.map((nivel) => (
+        <div class="linea-nivel">
+          <span class="etiqueta-y">{nivel}%</span>
+          <div class="linea-punteada"></div>
+        </div>
+      ))}
     </div>
-    <div class="kpi-box">
-      <span class="kpi-label">Superávit Comercial</span>
-      <strong class="kpi-number">US$ 34.573 M</strong>
-      <span class="kpi-delta">Cierre anual BCRP 2025</span>
-    </div>
-    <div class="kpi-box">
-      <span class="kpi-label">Puerto de Chancay</span>
-      <strong class="kpi-number">~3,0 Millones TM</strong>
-      <span class="kpi-delta">Carga movilizada (Jun–Dic 2025)</span>
+
+    <!-- Barras verticales -->
+    <div class="barras-contenedor">
+      {socios.map((socio, index) => {
+        const alturaPct = (socio.porcentaje / escalaMax) * 100;
+        return (
+          <button
+            type="button"
+            class={`barra-columna ${index === 0 ? "is-active" : ""}`}
+            data-pais={socio.pais}
+            data-porcentaje={`${socio.porcentaje}%`}
+            data-monto={`US$ ${socio.monto}`}
+            aria-label={`${socio.pais}: ${socio.porcentaje}% (US$ ${socio.monto})`}
+          >
+            <div class="barra-track">
+              <div
+                class="barra-fill"
+                style={`height: ${alturaPct}%;`}
+              >
+                <span class="barra-valor-flotante">{socio.porcentaje}%</span>
+              </div>
+            </div>
+            <span class="etiqueta-x">{socio.pais}</span>
+          </button>
+        );
+      })}
     </div>
   </div>
 
-  <figcaption class="chart-footer">
-    Fuente: Banco Central de Reserva del Perú (BCRP, 2026) y Autoridad Portuaria Nacional (APN, 2026). Pasa el cursor o alterna las unidades para explorar.
+  <figcaption class="grafico-fuente">
+    Fuente: Banco Central de Reserva del Perú (BCRP). Total exportado: US$ 93,078 millones. Pasa el cursor o selecciona un país para ver el detalle.
   </figcaption>
 </figure>
 
 <script>
-  const container = document.getElementById('chart-comercio-2025');
-  if (container) {
-    const buttons = container.querySelectorAll('.toggle-btn');
-    const valChina = document.getElementById('val-china');
-    const valEeuu = document.getElementById('val-eeuu');
-    const valResto = document.getElementById('val-resto');
+  const columnas = document.querySelectorAll<HTMLButtonElement>(".barra-columna");
+  const infoBar = document.getElementById("bcrp-info-bar");
 
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const mode = btn.getAttribute('data-mode');
+  if (columnas.length && infoBar) {
+    const infoPais = infoBar.querySelector(".info-pais");
+    const infoValor = infoBar.querySelector(".info-valor");
 
-        if (mode === 'usd') {
-          if (valChina) valChina.textContent = 'US$ 32.670 M';
-          if (valEeuu) valEeuu.textContent = 'US$ 10.146 M';
-          if (valResto) valResto.textContent = 'US$ 50.262 M';
-        } else {
-          if (valChina) valChina.textContent = '35,1 %';
-          if (valEeuu) valEeuu.textContent = '10,9 %';
-          if (valResto) valResto.textContent = '54,0 %';
-        }
-      });
+    const actualizarSeleccion = (btn: HTMLButtonElement) => {
+      columnas.forEach((c) => c.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      if (infoPais && infoValor) {
+        infoPais.textContent = btn.dataset.pais ?? "";
+        infoValor.textContent = `${btn.dataset.porcentaje} (${btn.dataset.monto})`;
+      }
+    };
+
+    columnas.forEach((btn) => {
+      btn.addEventListener("mouseenter", () => actualizarSeleccion(btn));
+      btn.addEventListener("focus", () => actualizarSeleccion(btn));
+      btn.addEventListener("click", () => actualizarSeleccion(btn));
     });
   }
 </script>
 
 <style>
-  .diplomacy-chart-card {
+  .grafico-bcrp-wrapper {
     margin: 2.5rem 0;
-    padding: 1.75rem;
-    background: #f6f2e9;
-    border: 1px solid #dfd7c5;
-    border-radius: 10px;
-    box-shadow: 0 4px 18px rgba(45, 36, 24, 0.04);
+    padding: 1.75rem 1.75rem 1.25rem;
+    background: #fafafa;
+    border: 1px solid #ececec;
+    border-radius: 14px;
     font-family: inherit;
   }
 
-  .chart-header {
+  .grafico-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e5dec9;
-  }
-
-  .chart-kicker {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: #8c6d46;
-    margin-bottom: 0.3rem;
-  }
-
-  .chart-title {
-    margin: 0 0 0.35rem 0;
-    font-size: 1.2rem;
-    color: #2b241b;
-    line-height: 1.3;
-  }
-
-  .chart-subtitle {
-    margin: 0;
-    font-size: 0.88rem;
-    color: #635849;
-  }
-
-  .chart-controls {
-    display: inline-flex;
-    background: #ebe4d3;
-    padding: 0.25rem;
-    border-radius: 6px;
-    border: 1px solid #dcd3be;
-  }
-
-  .toggle-btn {
-    border: none;
-    background: transparent;
-    padding: 0.4rem 0.75rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #5c5040;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .toggle-btn.active {
-    background: #7c5e3c;
-    color: #fffdf9;
-  }
-
-  .bars-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .bar-row {
-    padding: 0.75rem;
-    border-radius: 8px;
-    background: #fbf9f4;
-    border: 1px solid #ebe4d5;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-  }
-
-  .bar-row:hover {
-    transform: translateY(-2px);
-    border-color: #b89f7d;
-  }
-
-  .bar-meta {
-    display: flex;
     justify-content: space-between;
-    font-weight: 700;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .grafico-subtitulo {
+    margin: 0;
     font-size: 0.95rem;
-    color: #2b241b;
-    margin-bottom: 0.45rem;
+    color: #4b5563;
+    font-weight: 400;
   }
 
-  .partner-value {
-    color: #7c5e3c;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .bar-track {
-    width: 100%;
-    height: 12px;
-    background: #e8e0cf;
+  .grafico-tooltip-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.3rem 0.75rem;
+    background: #eef5ff;
+    color: #1d4ed8;
     border-radius: 999px;
-    overflow: hidden;
-  }
-
-  .bar-fill {
-    height: 100%;
-    border-radius: 999px;
-    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .fill-china { background: #8f3d2e; }
-  .fill-eeuu { background: #2c4c6b; }
-  .fill-resto { background: #7c684c; }
-
-  .bar-note {
-    margin: 0.5rem 0 0 0;
-    font-size: 0.82rem;
-    color: #6b6050;
-  }
-
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 0.85rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .kpi-box {
-    background: #efe9db;
-    border: 1px solid #dfd6c3;
-    border-radius: 8px;
-    padding: 0.85rem 1rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .kpi-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #6b5e4c;
-    font-weight: 600;
-  }
-
-  .kpi-number {
-    font-size: 1.15rem;
-    color: #2b241b;
-    margin: 0.25rem 0;
-  }
-
-  .kpi-delta {
-    font-size: 0.78rem;
-    color: #7c5e3c;
+    font-size: 0.84rem;
     font-weight: 500;
   }
 
-  .chart-footer {
+  .info-sep {
+    opacity: 0.5;
+  }
+
+  .grafico-area {
+    position: relative;
+    height: 270px;
+    padding-left: 3.1rem;
+    padding-bottom: 2.2rem;
+    user-select: none;
+  }
+
+  /* Grid horizontal punteado */
+  .eje-y-grid {
+    position: absolute;
+    inset: 0 0 2.2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+
+  .linea-nivel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    height: 0;
+  }
+
+  .etiqueta-y {
+    width: 2.35rem;
+    text-align: right;
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .linea-punteada {
+    flex: 1;
+    border-bottom: 1px dashed #e5e7eb;
+  }
+
+  /* Contenedor de barras */
+  .barras-contenedor {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(0.65rem, 2.2vw, 1.5rem);
+    align-items: end;
+    padding: 0 0.5rem;
+  }
+
+  .barra-columna {
+    appearance: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .barra-track {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .barra-fill {
+    width: 100%;
+    max-width: 115px;
+    background: #539bf5;
+    border-radius: 10px;
+    position: relative;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .barra-columna:hover .barra-fill,
+  .barra-columna:focus-visible .barra-fill,
+  .barra-columna.is-active .barra-fill {
+    background: #3b82f6;
+    transform: translateY(-2px);
+  }
+
+  .barra-valor-flotante {
+    position: absolute;
+    top: -1.55rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1f2937;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    white-space: nowrap;
+  }
+
+  .barra-columna:hover .barra-valor-flotante,
+  .barra-columna:focus-visible .barra-valor-flotante,
+  .barra-columna.is-active .barra-valor-flotante {
+    opacity: 1;
+  }
+
+  .etiqueta-x {
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #1f2937;
+    white-space: nowrap;
+    font-weight: 400;
+  }
+
+  .barra-columna.is-active .etiqueta-x {
+    font-weight: 600;
+  }
+
+  .grafico-fuente {
+    margin-top: 1.35rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid #eeeeee;
     font-size: 0.78rem;
-    color: #7a6f5f;
-    border-top: 1px solid #e5dec9;
-    padding-top: 0.75rem;
+    color: #6b7280;
+  }
+
+  @media (max-width: 600px) {
+    .grafico-bcrp-wrapper {
+      padding: 1.25rem 1rem 1rem;
+    }
+
+    .grafico-area {
+      height: 230px;
+      padding-left: 2.6rem;
+    }
+
+    .etiqueta-x {
+      font-size: 0.76rem;
+    }
+
+    .barra-fill {
+      border-radius: 7px;
+    }
   }
 </style>
