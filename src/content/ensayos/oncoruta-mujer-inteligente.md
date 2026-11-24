@@ -1,6 +1,5 @@
 ---
-title: "OncoRuta Mujer Inteligente: Sistema Preventivo Inteligente de Alert
-as Contra el Abandono y Rescate Activo de Pacientes"
+title: "OncoRuta Mujer Inteligente: Sistema Preventivo Inteligente de Alertas Contra el Abandono y Rescate Activo de Pacientes"
 description: "Propuesta de gobernanza en salud pública y capa digital intercultural sobrepuesta al INEN e IREN para prevenir el abandono (drop-out) en el tratamiento del cáncer de mama y cuello uterino en el Perú."
 pubDate: 2026-03-10
 author: "Oriana Yadhira Vértiz Vergara"
