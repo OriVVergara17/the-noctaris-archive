@@ -4,31 +4,41 @@ const socios = [
     pais: "China",
     porcentaje: 35.1,
     monto: "32,670 M",
-    detalle: "Principal socio comercial (cobre, hierro y harina de pescado)",
+    color: "#8C3B2B",
+    colorHover: "#722E21",
+    detalle: "Principal socio comercial; alta exposición a demanda de minerales.",
   },
   {
     pais: "Estados Unidos",
-    porcentaje: 11.2,
-    monto: "10,425 M",
-    detalle: "Agroexportación, oro y textiles",
+    porcentaje: 10.9,
+    monto: "10,145 M",
+    color: "#24476E",
+    colorHover: "#1B3654",
+    detalle: "Segundo socio bilateral clave en manufacturas y agroexportación.",
   },
   {
     pais: "India",
     porcentaje: 6.8,
     monto: "6,329 M",
-    detalle: "Oro y minerales metálicos",
+    color: "#6E5A3E",
+    colorHover: "#574730",
+    detalle: "Destino relevante de oro y minerales metálicos.",
   },
   {
     pais: "Canadá",
     porcentaje: 5.4,
     monto: "5,026 M",
-    detalle: "Minería y metales preciosos",
+    color: "#8A7356",
+    colorHover: "#705C43",
+    detalle: "Comercio concentrado en minería y metales preciosos.",
   },
   {
     pais: "Bolivia",
     porcentaje: 3.9,
     monto: "3,630 M",
-    detalle: "Manufacturas, combustibles y alimentos",
+    color: "#A69072",
+    colorHover: "#8B775C",
+    detalle: "Socio regional clave en manufacturas y combustibles.",
   },
 ];
 
@@ -42,9 +52,10 @@ const nivelesY = [40, 30, 20, 10, 0];
       Participación porcentual en las exportaciones peruanas, según el BCRP.
     </p>
     <div class="grafico-tooltip-bar" id="bcrp-info-bar" aria-live="polite">
+      <span class="info-dot" id="bcrp-info-dot" style="background: #8C3B2B;"></span>
       <span class="info-pais">China</span>
       <span class="info-sep">·</span>
-      <span class="info-valor">35.1% (US$ 32,670 M)</span>
+      <span class="info-valor">35,1 % (US$ 32.670 M)</span>
     </div>
   </div>
 
@@ -63,21 +74,23 @@ const nivelesY = [40, 30, 20, 10, 0];
     <div class="barras-contenedor">
       {socios.map((socio, index) => {
         const alturaPct = (socio.porcentaje / escalaMax) * 100;
+        const pctFormato = socio.porcentaje.toFixed(1).replace(".", ",");
         return (
           <button
             type="button"
             class={`barra-columna ${index === 0 ? "is-active" : ""}`}
             data-pais={socio.pais}
-            data-porcentaje={`${socio.porcentaje}%`}
+            data-porcentaje={`${pctFormato} %`}
             data-monto={`US$ ${socio.monto}`}
-            aria-label={`${socio.pais}: ${socio.porcentaje}% (US$ ${socio.monto})`}
+            data-color={socio.color}
+            aria-label={`${socio.pais}: ${pctFormato} % (US$ ${socio.monto})`}
           >
             <div class="barra-track">
               <div
                 class="barra-fill"
-                style={`height: ${alturaPct}%;`}
+                style={`height: ${alturaPct}%; --bar-color: ${socio.color}; --bar-hover: ${socio.colorHover};`}
               >
-                <span class="barra-valor-flotante">{socio.porcentaje}%</span>
+                <span class="barra-valor-flotante">{pctFormato} %</span>
               </div>
             </div>
             <span class="etiqueta-x">{socio.pais}</span>
@@ -88,13 +101,14 @@ const nivelesY = [40, 30, 20, 10, 0];
   </div>
 
   <figcaption class="grafico-fuente">
-    Fuente: Banco Central de Reserva del Perú (BCRP). Total exportado: US$ 93,078 millones. Pasa el cursor o selecciona un país para ver el detalle.
+    Fuente: Banco Central de Reserva del Perú (BCRP). Total exportado: US$ 93.078 millones. Pasa el cursor o selecciona un país para ver el detalle.
   </figcaption>
 </figure>
 
 <script>
   const columnas = document.querySelectorAll<HTMLButtonElement>(".barra-columna");
   const infoBar = document.getElementById("bcrp-info-bar");
+  const infoDot = document.getElementById("bcrp-info-dot");
 
   if (columnas.length && infoBar) {
     const infoPais = infoBar.querySelector(".info-pais");
@@ -106,6 +120,9 @@ const nivelesY = [40, 30, 20, 10, 0];
       if (infoPais && infoValor) {
         infoPais.textContent = btn.dataset.pais ?? "";
         infoValor.textContent = `${btn.dataset.porcentaje} (${btn.dataset.monto})`;
+      }
+      if (infoDot && btn.dataset.color) {
+        infoDot.style.background = btn.dataset.color;
       }
     };
 
@@ -120,10 +137,10 @@ const nivelesY = [40, 30, 20, 10, 0];
 <style>
   .grafico-bcrp-wrapper {
     margin: 2.5rem 0;
-    padding: 1.75rem 1.75rem 1.25rem;
-    background: #fafafa;
-    border: 1px solid #ececec;
-    border-radius: 14px;
+    padding: 1.65rem 1.75rem 1.25rem;
+    background: #fcfaf5;
+    border: 1px solid #e6dfd1;
+    border-radius: 12px;
     font-family: inherit;
   }
 
@@ -131,15 +148,15 @@ const nivelesY = [40, 30, 20, 10, 0];
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: 0.75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
   }
 
   .grafico-subtitulo {
     margin: 0;
-    font-size: 0.95rem;
-    color: #4b5563;
+    font-size: 0.94rem;
+    color: #4a4238;
     font-weight: 400;
   }
 
@@ -147,30 +164,43 @@ const nivelesY = [40, 30, 20, 10, 0];
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.3rem 0.75rem;
-    background: #eef5ff;
-    color: #1d4ed8;
+    padding: 0.35rem 0.85rem;
+    background: #f3ede0;
+    border: 1px solid #dfd5c3;
+    color: #2c251d;
     border-radius: 999px;
     font-size: 0.84rem;
     font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .info-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .info-pais {
+    font-weight: 600;
   }
 
   .info-sep {
-    opacity: 0.5;
+    opacity: 0.45;
   }
 
   .grafico-area {
     position: relative;
-    height: 270px;
-    padding-left: 3.1rem;
-    padding-bottom: 2.2rem;
+    height: 250px;
+    padding-left: 3rem;
+    margin-bottom: 2.35rem;
     user-select: none;
   }
 
   /* Grid horizontal punteado */
   .eje-y-grid {
     position: absolute;
-    inset: 0 0 2.2rem 0;
+    inset: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -185,16 +215,16 @@ const nivelesY = [40, 30, 20, 10, 0];
   }
 
   .etiqueta-y {
-    width: 2.35rem;
+    width: 2.25rem;
     text-align: right;
-    font-size: 0.85rem;
-    color: #6b7280;
+    font-size: 0.82rem;
+    color: #786d5f;
     font-variant-numeric: tabular-nums;
   }
 
   .linea-punteada {
     flex: 1;
-    border-bottom: 1px dashed #e5e7eb;
+    border-bottom: 1px dashed #e2d9c8;
   }
 
   /* Contenedor de barras */
@@ -204,7 +234,7 @@ const nivelesY = [40, 30, 20, 10, 0];
     height: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: clamp(0.65rem, 2.2vw, 1.5rem);
+    gap: clamp(0.65rem, 2.2vw, 1.4rem);
     align-items: end;
     padding: 0 0.5rem;
   }
@@ -234,28 +264,30 @@ const nivelesY = [40, 30, 20, 10, 0];
 
   .barra-fill {
     width: 100%;
-    max-width: 115px;
-    background: #539bf5;
-    border-radius: 10px;
+    max-width: 108px;
+    background: var(--bar-color);
+    border-radius: 8px 8px 3px 3px;
     position: relative;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.92;
   }
 
   .barra-columna:hover .barra-fill,
   .barra-columna:focus-visible .barra-fill,
   .barra-columna.is-active .barra-fill {
-    background: #3b82f6;
+    background: var(--bar-hover);
+    opacity: 1;
     transform: translateY(-2px);
   }
 
   .barra-valor-flotante {
     position: absolute;
-    top: -1.55rem;
+    top: -1.5rem;
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.8rem;
     font-weight: 600;
-    color: #1f2937;
+    color: #2c251d;
     opacity: 0;
     transition: opacity 0.18s ease;
     white-space: nowrap;
@@ -269,25 +301,27 @@ const nivelesY = [40, 30, 20, 10, 0];
 
   .etiqueta-x {
     position: absolute;
-    bottom: -2rem;
+    top: calc(100% + 0.65rem);
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.9rem;
-    color: #1f2937;
+    font-size: 0.86rem;
+    color: #4a4238;
     white-space: nowrap;
     font-weight: 400;
   }
 
   .barra-columna.is-active .etiqueta-x {
+    color: #1f1a14;
     font-weight: 600;
   }
 
   .grafico-fuente {
-    margin-top: 1.35rem;
+    margin-top: 0.75rem;
     padding-top: 0.85rem;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid #e8e0d0;
     font-size: 0.78rem;
-    color: #6b7280;
+    color: #786d5f;
+    line-height: 1.45;
   }
 
   @media (max-width: 600px) {
@@ -296,16 +330,16 @@ const nivelesY = [40, 30, 20, 10, 0];
     }
 
     .grafico-area {
-      height: 230px;
-      padding-left: 2.6rem;
+      height: 215px;
+      padding-left: 2.5rem;
     }
 
     .etiqueta-x {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
     }
 
     .barra-fill {
-      border-radius: 7px;
+      border-radius: 6px 6px 2px 2px;
     }
   }
 </style>
